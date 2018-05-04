@@ -29,6 +29,8 @@
 > NGALoginSDKResource.bundle
 >
 > NGALoginSDKStrings.bundle
+>
+> GameKit.framework (系统库)
 
 然后将文件添加到`Build Phases`中如下图:
 
