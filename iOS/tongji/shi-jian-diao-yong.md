@@ -10,18 +10,16 @@
 GoogleAnalytics的事件调用方法比较特殊, 接口方法为:
 
 ```
-///parameters构造必须依照GAIDictionaryBuilder.h
-- (void)gaSend:(NSDictionary *)parameters;
+- (void)gaSendEventWithCategory:(NSString *)category action:(NSString *)action label:(NSString *)label value:(NSNumber *)value;
 ```
 
 例如:
 
 ```Objective-C
-[NGAAppEvents.sharedInstance gaSend:[[GAIDictionaryBuilder
-                createEventWithCategory:@"Player_Info"
-                                 action:@"Level"
-                                  label:@"888"
-                                  value:nil] build]];
+[NGAAppEvents.sharedInstance gaSendEventWithCategory:@"Player_Info"
+                                              action:@"Level"
+                                               label:nil
+                                               value:@(888)];
 ```
 
 注意:![](/.gitbook/assets/图片2.png)
@@ -32,5 +30,5 @@ GoogleAnalytics的事件调用方法比较特殊, 接口方法为:
 
 和
 
-`- (void)gaSend:(NSDictionary *)parameters` 两个方法
+`- (void)gaSendEventWithCategory:(NSString *)category action:(NSString *)action label:(NSString *)label value:(NSNumber *)value` 两个方法
 
