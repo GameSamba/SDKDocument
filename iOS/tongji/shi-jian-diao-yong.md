@@ -2,20 +2,20 @@
 
 除去GoogleAnalytics的事件调用方法为:
 
-```Objective-C
+```objective-c
 [NGAAppEvents.sharedInstance recordEvent:@"TestEventA"];
 [NGAAppEvents.sharedInstance recordEvent:@"TestEventC" values:@{@"level" : @"10"}];
 ```
 
 GoogleAnalytics的事件调用方法比较特殊, 接口方法为:
 
-```
+```objective-c
 - (void)gaSendEventWithCategory:(NSString *)category action:(NSString *)action label:(NSString *)label value:(NSNumber *)value;
 ```
 
 例如:
 
-```Objective-C
+```objective-c
 [NGAAppEvents.sharedInstance gaSendEventWithCategory:@"Player_Info"
                                               action:@"Level"
                                                label:nil
@@ -30,5 +30,7 @@ GoogleAnalytics的事件调用方法比较特殊, 接口方法为:
 
 和
 
-`- (void)gaSendEventWithCategory:(NSString *)category action:(NSString *)action label:(NSString *)label value:(NSNumber *)value` 两个方法
+`- (void)gaSendEventWithCategory:(NSString *)category action:(NSString *)action label:(NSString *)label value:(NSNumber *)value` 
+
+两个方法
 
