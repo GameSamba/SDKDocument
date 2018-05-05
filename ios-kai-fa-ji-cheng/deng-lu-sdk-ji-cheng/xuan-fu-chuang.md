@@ -1,6 +1,6 @@
-#### 悬浮窗
+# 悬浮窗
 
-```Objective-C
+```text
     //获取悬浮窗控件并添加到视图中
     NGAGameDragBallView *dragballView=[[NGAGameDragBallView alloc] initWithFrame:CGRectMake(0, 250, 0, 0)];
     [self.view addSubview:dragballView];
@@ -16,6 +16,4 @@
     dragballView.isOpenforum = YES;
     [dragballView setupRoleNameForSupport:@"角色 名"];
 ```
-
-
 

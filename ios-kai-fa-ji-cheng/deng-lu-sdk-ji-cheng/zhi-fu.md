@@ -1,6 +1,8 @@
-#### 1. 初始化商品集合并设置代理方法
+# 支付
 
-```Objective-C
+## 1. 初始化商品集合并设置代理方法
+
+```text
 - (void)shopsInit{
     //初始化iap对象
     if(![IAPShare sharedHelper].iap) {
@@ -41,9 +43,9 @@
 }
 ```
 
-#### 2. 发起购买物品的请求
+## 2. 发起购买物品的请求
 
-```Objective-C
+```text
 - (void)shopBtnClicked{
     //获取商品对象
     SKProduct* product =[[IAPShare sharedHelper].iap.products objectAtIndex:1];
@@ -57,7 +59,7 @@
 }
 ```
 
-#### 3. 验证
+## 3. 验证
 
 验证内购请参考`1`中 的支付回调部分
 

@@ -1,12 +1,14 @@
-#### 1. Info.plist文件配置
+# SDK配置及初始化
+
+## 1. Info.plist文件配置
 
 必要配置项如红框所示:
 
-![](/.gitbook/assets/Snipaste_2018-05-03_12-02-03.png)
+![](../../.gitbook/assets/snipaste_2018-05-03_12-02-03.png)
 
 源文件部分代码如下, 使用时需要配置相应的facebook appid和 NGamesAppid即可
 
-```xml
+```markup
 <key>LSApplicationQueriesSchemes</key>
 <array>
     <string>fbapi</string>
@@ -35,13 +37,13 @@
 <true/>
 ```
 
-#### 2. 在AppDelegate文件中配置初始化代码
+## 2. 在AppDelegate文件中配置初始化代码
 
-##### 导入头文件 `#import <NGALoginSDK/NGALoginSDK.h>`
+### 导入头文件 `#import <NGALoginSDK/NGALoginSDK.h>`
 
 在`- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions` 方法中配置如下代码:
 
-```Objective-C
+```text
 [NGAGameLoginKit shareInstance].languageCode = @"en";
 [[NGAGameLoginKit shareInstance] setupGameHandlerWithApplication:application LaunchingWithOptions:launchOptions];
 ```
@@ -59,9 +61,9 @@
 > | ko | 韩语 |
 > | id | 印尼语 |
 
-##### 并配置相应的OpenURL方法:
+### 并配置相应的OpenURL方法:
 
-```Objective-C
+```text
 ///iOS 9 之前使用的方法
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
     //FB的OpenURL方法
@@ -77,7 +79,5 @@
 }
 ```
 
-##### 至此, SDK初始化完毕
-
-
+### 至此, SDK初始化完毕
 

@@ -1,6 +1,8 @@
-#### 1. 设置代理方法及相关的参数
+# 登录
 
-```Objective-C
+## 1. 设置代理方法及相关的参数
+
+```text
 //设置服务器ID, 必要
 [NGAGameLoginKit shareInstance].sid = @"1"; 
 
@@ -13,9 +15,9 @@
 }
 ```
 
-#### 2.  游客登录
+## 2.  游客登录
 
-```Objective-C
+```text
     [[NGAGameLoginKit shareInstance] guestUserLoginSuccess:^(UserModel *user) {
         //TODO: 此处返回Guest User
 
@@ -24,9 +26,9 @@
     }];
 ```
 
-#### 3. Facebook 登录
+## 3. Facebook 登录
 
-```Objective-C
+```text
     [[NGAGameLoginKit shareInstance] fbLoginSuccess:^(UserModel *user) {
         NSLog(@"facebook 用户ID:%@", [FBSDKAccessToken currentAccessToken].userID);
         //TODO: 此处返回绑定fb的 User
@@ -36,9 +38,9 @@
     }];
 ```
 
-#### 4. GameCenter登录
+## 4. GameCenter登录
 
-```
+```text
     [[NGAGameLoginKit shareInstance] gameCenterLoginSuccess:^(UserModel *user) {
         //TODO: 此处返回绑定GameCenter的User
 
@@ -46,6 +48,4 @@
 
     }];
 ```
-
-
 
