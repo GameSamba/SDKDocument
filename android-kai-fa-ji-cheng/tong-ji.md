@@ -34,6 +34,20 @@ dependencies {
 }
 ```
 
+**Note**: 如果你使用 `Gradle 3.0.0 或者更高版本`, 务必使用 `implementation` 关键字替代 `compile` 如下:
+
+```java
+dependencies {
+    ...
+
+    // 统计功能SDK (必需)
+    implementation(name: 'gamesamba-analytics-sdk-3.3.3', ext: 'aar')
+    // Appsflyer模块
+    implementation 'com.appsflyer:af-android-sdk:4+@aar'
+    implementation 'com.android.installreferrer:installreferrer:1.0'
+}
+```
+
 ## 权限和组件
 
 在 `AndroidManifest.xml` 中加入以下配置:
