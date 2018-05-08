@@ -14,8 +14,9 @@
   * [绑定](android-kai-fa-ji-cheng/bang-ding.md)
   * [悬浮球](android-kai-fa-ji-cheng/xuan-fu-qiu.md)
   * [统计](android-kai-fa-ji-cheng/tong-ji.md)
-  * [支付](android-kai-fa-ji-cheng/zhi-fu.md)
+  * [Google 支付](android-kai-fa-ji-cheng/zhi-fu.md)
   * [Facebook 功能](android-kai-fa-ji-cheng/facebook-gong-neng.md)
+  * [Samsung 支付](android-kai-fa-ji-cheng/samsung-xiang-guan-gong-neng.md)
 * iOS开发集成
   * [登录SDK集成](ios-kai-fa-ji-cheng/deng-lu-sdk-ji-cheng/README.md)
     * [SDK集成步骤](ios-kai-fa-ji-cheng/deng-lu-sdk-ji-cheng/sdk-ji-cheng-bu-zhou.md)

@@ -1,4 +1,4 @@
-# 支付
+# Google 支付
 
 ## Google支付
 
@@ -20,6 +20,8 @@
  */
 public static GoogleBillingSupport newBillingInstance(Activity activity, String publicKey, OrderDetail orderDetail, BillingCallback billingCallback, boolean isDebug) 
 ```
+
+初始化以上方法之后，在结果回调接口  `BillingCallback` 的   `onBillingInitialized()` 方法中，调用购买方法：
 
 ```java
 /**
@@ -56,6 +58,8 @@ googleBillingSupport = GoogleBillingSupport.newBillingInstance(MainActivity.this
     
     @Override
     public void onBillingInitialized() {
+        //购买商品
+        googleBillingSupport.purchase();
     }
     
     @Override
@@ -64,11 +68,14 @@ googleBillingSupport = GoogleBillingSupport.newBillingInstance(MainActivity.this
         logText.setText("errorCode=" + errorCode);
     }
 }, false);
-googleBillingSupport.purchase();
 ```
 
 {% hint style="info" %}
- 
+ 初始化订单的回调接口  `BillingCallback` 的   `onBillingInitialized()` 方法中，必须调用购买方法
+
+```java
+googleBillingSupport.purchase();
+```
 {% endhint %}
 
 
