@@ -9,8 +9,8 @@ SDK中使用三星IAP 5.0版本
 
 ## 接入要求
 
-* IAP 5.0 支持Android API 14及以上版本，在更早版本上无法正常运行
-* IAP 5.0 需要Galaxy Apps商店 4.2.13.xx 版本或以上
+* 支持Android API 14及以上版本，在更早版本上无法正常运行
+* 需要Galaxy Apps商店 4.2.13.xx 版本或以上
 
 {% hint style="info" %}
 请注意：下图中的弹窗出现时，说明该应用仍在测试模式下
@@ -24,9 +24,59 @@ SDK中使用三星IAP 5.0版本
 
 
 
-需要添加权限，用来链接IAP
+## 权限和组件
 
-“com.samsung.android.iap.permission.BILLING” 
+在 `AndroidManifest.xml` 中加入以下配置:
+
+```markup
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+       package="您的应用包名">
+
+    <!-- 权限声明 -->
+    <!--三星商店权限-->
+    <uses-permission android:name="com.samsung.android.iap.permission.BILLING"/>
+
+    <application
+        ...>
+        <!-- 三星商店 IAP Activity ↓↓↓-->
+        <!--发起支付请求-->
+        <activity
+            android:name="com.samsung.android.sdk.iap.lib.activity.PaymentActivity"
+            android:theme="@style/Theme.Empty"
+            android:configChanges="orientation|screenSize"/>
+        <!--请求商品列表-->
+        <activity
+            android:name="com.samsung.android.sdk.iap.lib.activity.ProductActivity"
+            android:theme="@style/Theme.Empty"
+            android:configChanges="orientation|screenSize"/>
+        <!--请求已购物品列表-->
+        <activity
+            android:name="com.samsung.android.sdk.iap.lib.activity.OwnedProductActivity"
+            android:theme="@style/Theme.Empty"
+            android:configChanges="orientation|screenSize"/>
+        <!--请求已购物品的消耗情况-->
+        <activity
+            android:name="com.samsung.android.sdk.iap.lib.activity.ConsumePurchasedItemsActivity"
+            android:theme="@style/Theme.Empty"
+            android:configChanges="orientation|screenSize"/>
+        <!-- 三星商店 IAP Activity ↑↑↑-->
+    </application>
+</manifest>
+
+```
+
+{% hint style="danger" %}
+ 1.必须要配置权限  `com.samsung.android.iap.permission.BILLING` ，用于链接三星IAP
+
+ 2. 四个activities必须为透明背景，需设置 android:theme=”@style/Theme.Empty”. 否则会覆盖原本的 应用。
+{% endhint %}
+
+{% hint style="info" %}
+
+{% endhint %}
+
+
 
 
 
@@ -49,6 +99,6 @@ SDK中使用三星IAP 5.0版本
 
 
 {% hint style="info" %}
- 四个activities必须为透明背景，需设置 android:theme=”@style/Theme.Empty”. 否则会覆盖原本的 应用。
+ 
 {% endhint %}
 
