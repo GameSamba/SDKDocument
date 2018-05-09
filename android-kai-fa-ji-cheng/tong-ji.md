@@ -104,7 +104,7 @@ dependencies {
 <string name="google_tracking_id">google_tracking_id</string>
 ```
 
-{% hint style="info" %}
+{% hint style="danger" %}
 接入统计必须配置以上配置：
 
 1.Appsflyer配置：
