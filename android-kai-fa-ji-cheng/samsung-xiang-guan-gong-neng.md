@@ -143,14 +143,14 @@ public static SamsungBillingSupport getInstance(Activity activity, BillingCallba
  * 设置三星商店调试模式
  * @param isDebug
  */
-public void setDebugMode(boolean isDebug)
+public void setDebug(boolean isDebug)
 ```
 
 > #### 示例 {#shi-li}
 
 ```java
 //设置三星商店调试模式
-mSamsungBillingSupport.setDebugMode(true);
+mSamsungBillingSupport.setDebug(true);
 ```
 
 {% hint style="info" %}

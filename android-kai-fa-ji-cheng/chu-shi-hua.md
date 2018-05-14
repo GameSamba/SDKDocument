@@ -43,5 +43,35 @@ public static NgamesSdk getInstance(Context context, Activity activity, String l
 SDK使用前必须初始化
 {% endhint %}
 
+## 设置调试模式 {#ji-lu-tong-ji-shi-jian}
 
+> #### API介绍 {#api-jie-shao}
+
+设置SDK调试模式
+
+> #### API原型 {#api-yuan-xing-2}
+
+```java
+/**
+ * 设置调试模式
+ * @param isDebug
+ */
+public void setDebug(boolean isDebug)
+```
+
+> #### 示例 {#shi-li}
+
+```java
+ngamesSdk.setDebug(true);//设置Debug模式
+```
+
+{% hint style="info" %}
+调试模式下，Android日志会打印出来。
+{% endhint %}
+
+{% hint style="danger" %}
+打包发布前，测试完成，务必将调试模式设置为false 
+{% endhint %}
+
+![](blob:https://gamesamba.gitbook.io/226c1cbe-210e-4592-9856-e5ba1c9aa02a)![](blob:https://gamesamba.gitbook.io/953fad3c-8583-45f9-bb59-9925cb7b1891)
 
