@@ -1,6 +1,6 @@
 # Google 支付
 
-## Google支付
+## 初始化
 
 > ####  API介绍
 
@@ -22,6 +22,8 @@ public static GoogleBillingSupport newBillingInstance(Activity activity, String 
 ```
 
 初始化以上方法之后，在结果回调接口  `BillingCallback` 的   `onBillingInitialized()` 方法中，调用购买方法：
+
+## 商品购买
 
 ```java
 /**
@@ -77,6 +79,57 @@ googleBillingSupport = GoogleBillingSupport.newBillingInstance(MainActivity.this
 googleBillingSupport.purchase();
 ```
 {% endhint %}
+
+## 生命周期
+
+### 1.onResume
+
+#### 在主Activity\#onResume中 {#src-cnt-0-0}
+
+```java
+...
+@Override
+protected void onResume() {
+    super.onResume();
+    ...
+    if (googleBillingSupport != null) {
+        googleBillingSupport.onResume();
+    }
+}
+```
+
+### 2.onDestroy
+
+#### 在主Activity\#onDestroy中 {#src-cnt-0-0}
+
+```java
+...
+@Override
+protected void onDestroy() {
+    super.onDestroy();
+    ...
+    if (googleBillingSupport != null) {
+        googleBillingSupport.onDestroy();
+    }
+}
+```
+
+### 3.onActivityResult
+
+#### 在主Activity\#onActivityResult中 {#src-cnt-0-0}
+
+```java
+...
+@Override
+protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    ...
+    if (googleBillingSupport != null && googleBillingSupport.handleActivityResult(requestCode, resultCode, data)) {
+        return;
+    }
+    ...
+    super.onActivityResult(requestCode, resultCode, data);
+}
+```
 
 
 
