@@ -160,7 +160,7 @@ mSamsungBillingSupport.setDebug(true);
 {% hint style="danger" %}
 打包发布前，测试完成，务必将调试模式设置为false 
 
-请注意：下图中的弹窗出现时，说明该应用仍在 **测试模式 **下：
+请注意：下图中的弹窗出现时，说明该应用仍在 **测试模式** 下：
 
 ![](blob:https://gamesamba.gitbook.io/226c1cbe-210e-4592-9856-e5ba1c9aa02a)![](blob:https://gamesamba.gitbook.io/953fad3c-8583-45f9-bb59-9925cb7b1891)
 {% endhint %}
