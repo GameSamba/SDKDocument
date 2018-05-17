@@ -21,6 +21,10 @@ public static GoogleBillingSupport newBillingInstance(Activity activity, String 
 
 > #### 示例
 
+```text
+private GoogleBillingSupport googleBillingSupport;
+```
+
 ```java
 googleBillingSupport = GoogleBillingSupport.newBillingInstance(MainActivity.this, getString(R.string.google_public_key), new BillingCallback() {
     @Override
@@ -44,60 +48,37 @@ googleBillingSupport = GoogleBillingSupport.newBillingInstance(MainActivity.this
 
 ## 商品购买
 
+> ####  API介绍
+
+调用谷歌内购
+
+> #### API原型
+
 ```java
 /**
- * 购买
+ * 购买商品
+ * @param itemId     商品ID
+ * @param userId     用户ID
+ * @param userName   用户角色名称
+ * @param serverId   服务器ID
+ * @param serverName 服务器名称
  */
-public void purchase() 
+public void purchase(String itemId, String userId, String userName, String serverId, String serverName) 
 ```
 
 > #### 示例
 
 ```java
-private GoogleBillingSupport googleBillingSupport;
+String itemId = "ipa.tg.na002";//商品ID
+String userId = ngamesSdk.getCurrentUserId();//用户ID
+String userName = "test";//用户名称
+String serverId = "1";//服务器ID
+String serverName = "test";//服务器名称
+//购买商品
+googleBillingSupport.purchase(itemId, userId, userName, serverId, serverName);
 ```
 
-```java
-//实例化订单详情
-OrderDetail orderDetail = new OrderDetail();
-orderDetail.setGid(NgamesUtil.getAppId(MainActivity.this));//设置游戏ID
-orderDetail.setItemid("ipa.tg.na002");//设置商品ID
-orderDetail.setLang(Const.LANG_EN);//设置语言
-orderDetail.setSid("1");//设置服务器ID
-orderDetail.setSname("test");//设置服务器名称
-orderDetail.setTime(String.valueOf(System.currentTimeMillis()));//设置当前时间
-orderDetail.setType("123");//设置类型
-orderDetail.setUid(ngamesSdk.getCurrentUserId());//设置当前用户ID
-orderDetail.setUsername("test");//设置用户帐号
 
-googleBillingSupport = GoogleBillingSupport.newBillingInstance(MainActivity.this, getString(R.string.base64EncodedPublicKey), orderDetail, new BillingCallback() {
-    @Override
-    public void onPurchased(String productId, String orderId) {
-        //购买成功
-        logText.setText("orderId=" + orderId);
-    }
-    
-    @Override
-    public void onBillingInitialized() {
-        //购买商品
-        googleBillingSupport.purchase();
-    }
-    
-    @Override
-    public void onError(int errorCode) {
-        //购买失败
-        logText.setText("errorCode=" + errorCode);
-    }
-}, false);
-```
-
-{% hint style="info" %}
- 初始化订单的回调接口  `BillingCallback` 的   `onBillingInitialized()` 方法中，必须调用购买方法
-
-```java
-googleBillingSupport.purchase();
-```
-{% endhint %}
 
 ## 生命周期
 
