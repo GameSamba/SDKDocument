@@ -1,55 +1,32 @@
 # Google 支付
 
-## Google支付
+## 初始化
 
 > ####  API介绍
 
-使用谷歌支付
+谷歌支付初始化
 
 > #### API原型
 
 ```java
 /**
  * 初始化谷歌内购实例
- * @param activity 当前Activity
- * @param publicKey 谷歌PublicKey
- * @param orderDetail 订单信息
+ * @param activity        当前Activity
+ * @param publicKey       谷歌PublicKey
  * @param billingCallback 购买回调
- * @param isDebug 是否是Debug,Debug模式下会输出日志到SD卡中
  * @return
  */
-public static GoogleBillingSupport newBillingInstance(Activity activity, String publicKey, OrderDetail orderDetail, BillingCallback billingCallback, boolean isDebug) 
-```
-
-初始化以上方法之后，在结果回调接口  `BillingCallback` 的   `onBillingInitialized()` 方法中，调用购买方法：
-
-```java
-/**
- * 购买
- */
-public void purchase() 
+public static GoogleBillingSupport newBillingInstance(Activity activity, String publicKey, BillingCallback billingCallback) 
 ```
 
 > #### 示例
 
-```java
+```text
 private GoogleBillingSupport googleBillingSupport;
 ```
 
 ```java
-//实例化订单详情
-OrderDetail orderDetail = new OrderDetail();
-orderDetail.setGid(NgamesUtil.getAppId(MainActivity.this));//设置游戏ID
-orderDetail.setItemid("ipa.tg.na002");//设置商品ID
-orderDetail.setLang(Const.LANG_EN);//设置语言
-orderDetail.setSid("1");//设置服务器ID
-orderDetail.setSname("test");//设置服务器名称
-orderDetail.setTime(String.valueOf(System.currentTimeMillis()));//设置当前时间
-orderDetail.setType("123");//设置类型
-orderDetail.setUid(ngamesSdk.getCurrentUserId());//设置当前用户ID
-orderDetail.setUsername("test");//设置用户帐号
-
-googleBillingSupport = GoogleBillingSupport.newBillingInstance(MainActivity.this, getString(R.string.base64EncodedPublicKey), orderDetail, new BillingCallback() {
+googleBillingSupport = GoogleBillingSupport.newBillingInstance(MainActivity.this, getString(R.string.google_public_key), new BillingCallback() {
     @Override
     public void onPurchased(String productId, String orderId) {
         //购买成功
@@ -58,8 +35,7 @@ googleBillingSupport = GoogleBillingSupport.newBillingInstance(MainActivity.this
     
     @Override
     public void onBillingInitialized() {
-        //购买商品
-        googleBillingSupport.purchase();
+        //GooglePlay IAP服务初始化成功
     }
     
     @Override
@@ -67,16 +43,93 @@ googleBillingSupport = GoogleBillingSupport.newBillingInstance(MainActivity.this
         //购买失败
         logText.setText("errorCode=" + errorCode);
     }
-}, false);
+});
 ```
 
-{% hint style="info" %}
- 初始化订单的回调接口  `BillingCallback` 的   `onBillingInitialized()` 方法中，必须调用购买方法
+## 商品购买
+
+> ####  API介绍
+
+调用谷歌内购
+
+> #### API原型
 
 ```java
-googleBillingSupport.purchase();
+/**
+ * 购买商品
+ * @param itemId     商品ID
+ * @param userId     用户ID
+ * @param userName   用户角色名称
+ * @param serverId   服务器ID
+ * @param serverName 服务器名称
+ */
+public void purchase(String itemId, String userId, String userName, String serverId, String serverName) 
 ```
-{% endhint %}
+
+> #### 示例
+
+```java
+String itemId = "ipa.tg.na002";//商品ID
+String userId = ngamesSdk.getCurrentUserId();//用户ID
+String userName = "test";//用户名称
+String serverId = "1";//服务器ID
+String serverName = "test";//服务器名称
+//购买商品
+googleBillingSupport.purchase(itemId, userId, userName, serverId, serverName);
+```
+
+
+
+## 生命周期
+
+### 1.onResume
+
+#### 在主Activity\#onResume中 {#src-cnt-0-0}
+
+```java
+...
+@Override
+protected void onResume() {
+    super.onResume();
+    ...
+    if (googleBillingSupport != null) {
+        googleBillingSupport.onResume();
+    }
+}
+```
+
+### 2.onDestroy
+
+#### 在主Activity\#onDestroy中 {#src-cnt-0-0}
+
+```java
+...
+@Override
+protected void onDestroy() {
+    super.onDestroy();
+    ...
+    if (googleBillingSupport != null) {
+        googleBillingSupport.onDestroy();
+    }
+}
+```
+
+### 3.onActivityResult
+
+#### 在主Activity\#onActivityResult中 {#src-cnt-0-0}
+
+```java
+...
+@Override
+protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    ...
+    if (googleBillingSupport != null && googleBillingSupport.handleActivityResult(requestCode, resultCode, data)) {
+        return;
+    }
+    ...
+    super.onActivityResult(requestCode, resultCode, data);
+}
+```
 
 
 

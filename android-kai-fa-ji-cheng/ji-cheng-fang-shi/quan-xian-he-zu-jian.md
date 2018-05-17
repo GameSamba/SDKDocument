@@ -101,15 +101,6 @@
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity>
-
-        <!-- Appsflyer广播接收器 -->
-        <receiver 
-            android:name="com.appsflyer.MultipleInstallBroadcastReceiver" 
-            android:exported="true">
-            <intent-filter>
-                <action android:name="com.android.vending.INSTALL_REFERRER" />
-            </intent-filter>
-        </receiver>
     </application>
 </manifest>
 

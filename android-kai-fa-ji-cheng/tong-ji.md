@@ -14,7 +14,7 @@ description: 统计功能
 
 在SDK文件下的 `附件/libs`目录下存以下的文件：
 
-1. gamesamba-analytics-sdk-3.3.3.aar（GameSamba 统计SDK）
+1. gamesamba-analytics-sdk-3.3.4.aar（GameSamba 统计SDK）
 
 将以上这个aar文件导入到主工程`libs` 目录下
 
@@ -27,7 +27,7 @@ dependencies {
     ...
 
     // 统计功能SDK (必需)
-    compile(name: 'gamesamba-analytics-sdk-3.3.3', ext: 'aar')
+    compile(name: 'gamesamba-analytics-sdk-3.3.4', ext: 'aar')
     // Appsflyer模块
     compile 'com.appsflyer:af-android-sdk:4+@aar'
     compile 'com.android.installreferrer:installreferrer:1.0'
@@ -41,7 +41,7 @@ dependencies {
     ...
 
     // 统计功能SDK (必需)
-    implementation(name: 'gamesamba-analytics-sdk-3.3.3', ext: 'aar')
+    implementation(name: 'gamesamba-analytics-sdk-3.3.4', ext: 'aar')
     // Appsflyer模块
     implementation 'com.appsflyer:af-android-sdk:4+@aar'
     implementation 'com.android.installreferrer:installreferrer:1.0'
