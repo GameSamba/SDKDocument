@@ -4,24 +4,43 @@
 
 > ####  API介绍
 
-使用谷歌支付
+谷歌支付初始化
 
 > #### API原型
 
 ```java
 /**
  * 初始化谷歌内购实例
- * @param activity 当前Activity
- * @param publicKey 谷歌PublicKey
- * @param orderDetail 订单信息
+ * @param activity        当前Activity
+ * @param publicKey       谷歌PublicKey
  * @param billingCallback 购买回调
- * @param isDebug 是否是Debug,Debug模式下会输出日志到SD卡中
  * @return
  */
-public static GoogleBillingSupport newBillingInstance(Activity activity, String publicKey, OrderDetail orderDetail, BillingCallback billingCallback, boolean isDebug) 
+public static GoogleBillingSupport newBillingInstance(Activity activity, String publicKey, BillingCallback billingCallback) 
 ```
 
-初始化以上方法之后，在结果回调接口  `BillingCallback` 的   `onBillingInitialized()` 方法中，调用购买方法：
+> #### 示例
+
+```java
+googleBillingSupport = GoogleBillingSupport.newBillingInstance(MainActivity.this, getString(R.string.google_public_key), new BillingCallback() {
+    @Override
+    public void onPurchased(String productId, String orderId) {
+        //购买成功
+        logText.setText("orderId=" + orderId);
+    }
+    
+    @Override
+    public void onBillingInitialized() {
+        //GooglePlay IAP服务初始化成功
+    }
+    
+    @Override
+    public void onError(int errorCode) {
+        //购买失败
+        logText.setText("errorCode=" + errorCode);
+    }
+});
+```
 
 ## 商品购买
 
