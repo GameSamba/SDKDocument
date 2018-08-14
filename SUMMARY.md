@@ -29,6 +29,7 @@
     * [SDK集成](ios-kai-fa-ji-cheng/tong-ji-sdk-ji-cheng/sdk-ji-cheng.md)
     * [SDK初始化与配置](ios-kai-fa-ji-cheng/tong-ji-sdk-ji-cheng/sdk-chu-shi-hua-yu-pei-zhi.md)
     * [事件调用](ios-kai-fa-ji-cheng/tong-ji-sdk-ji-cheng/shi-jian-tiao-yong.md)
+    * [卸载追踪​](ios-kai-fa-ji-cheng/tong-ji-sdk-ji-cheng/uninstall-track.md)
     * [其他方法](ios-kai-fa-ji-cheng/tong-ji-sdk-ji-cheng/qi-ta-fang-fa.md)
 * [SDK更新日志](sdk-geng-xin-ri-zhi.md)
 * [常见问题](chang-jian-wen-ti.md)
