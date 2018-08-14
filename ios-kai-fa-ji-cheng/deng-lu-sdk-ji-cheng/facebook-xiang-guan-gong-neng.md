@@ -2,7 +2,7 @@
 
 ## 1. Facebook分享
 
-```objective-c
+```text
     //showFromViewController参数应该填写的是当前app的rootViewController
     [[NGAFacebookHelper shareInstance] fbShareParam:@"desc" contentURL:@"https://www.facebook.com/SuperheroBrawl" 
      showFromViewController:self Complate:^(BOOL isShareSuccess) {
@@ -16,7 +16,7 @@
 
 ## 2. Facebook游戏邀请
 
-```objective-c
+```text
     //eventID:活动的事件ID, 回调返回的是被邀请的fb的userid数组
     [[NGAFacebookHelper shareInstance] GameFBInviteMessage:@"一起来玩呀" Title:@"邀请测试" 
         eventID:@"1001" Complate:^(InviteResultType type, NSArray *ids) {
@@ -28,7 +28,7 @@
 
 ## 2.1. Facebook邀请计数
 
-```objective-c
+```text
     [[NGAFacebookHelper shareInstance] getFBInvitedUsersWithEventID:@"1001" 
         handler:^(NSArray *inviteUserFBIDs) {
         //回调返回被邀请的fb的userid数组

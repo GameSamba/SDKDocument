@@ -10,11 +10,17 @@ description: 统计功能
 如果游戏需要接入统计功能，需要额外导入GamesabaAnalysis的Sdk，并且按照步骤接入。
 {% endhint %}
 
+## 配置FireBase，下载
+
+1.添加、配置应用到Firebase（[控制台](https://console.firebase.google.com/)）（由产品人员进行配置）
+
+2.下载 `google-services.json` 文件， 复制到项目的模块文件夹（通常是 `app/`），请执行此操作。
+
 ## Gradle集成
 
 在SDK文件下的 `附件/libs`目录下存以下的文件：
 
-1. gamesamba-analytics-sdk-3.3.4.aar（GameSamba 统计SDK）
+1. gamesamba-analytics-sdk-3.3.5.aar（GameSamba 统计SDK）
 
 将以上这个aar文件导入到主工程`libs` 目录下
 
@@ -27,10 +33,12 @@ dependencies {
     ...
 
     // 统计功能SDK (必需)
-    compile(name: 'gamesamba-analytics-sdk-3.3.4', ext: 'aar')
+    compile(name: 'gamesamba-analytics-sdk-3.3.5', ext: 'aar')
     // Appsflyer模块
     compile 'com.appsflyer:af-android-sdk:4+@aar'
     compile 'com.android.installreferrer:installreferrer:1.0'
+    // Google FireBase模块
+    compile 'com.google.firebase:firebase-core:11.0.4'
 }
 ```
 
@@ -41,12 +49,16 @@ dependencies {
     ...
 
     // 统计功能SDK (必需)
-    implementation(name: 'gamesamba-analytics-sdk-3.3.4', ext: 'aar')
+    implementation(name: 'gamesamba-analytics-sdk-3.3.5', ext: 'aar')
     // Appsflyer模块
     implementation 'com.appsflyer:af-android-sdk:4+@aar'
     implementation 'com.android.installreferrer:installreferrer:1.0'
+    // Google FireBase模块
+    implementation 'com.google.firebase:firebase-core:11.0.4'
 }
 ```
+
+## 
 
 ## 权限和组件
 
@@ -65,11 +77,6 @@ dependencies {
         <meta-data
             android:name="com.ngames.analytics.AppsflyerKey"
             android:value="@string/appsflyer_key" />
-
-        <!--Google统计追踪ID，接入统计SDK需要-->
-        <meta-data
-            android:name="com.ngames.analytics.GoogleTrackingId"
-            android:value="@string/google_tracking_id" />
 
         <!--货币代码，例如： USD（美元），接入统计SDK需要-->
         <meta-data
@@ -100,8 +107,6 @@ dependencies {
 <string name="appsflyer_key">appsflyer_key</string>
 <!--货币代码，例如： USD（美元）-->
 <string name="currency_code">USD</string>
-<!--Google统计追踪ID，，请将 google_tracking_id 替换为自己的谷歌统计的tracking_id-->
-<string name="google_tracking_id">google_tracking_id</string>
 ```
 
 {% hint style="danger" %}
@@ -114,10 +119,6 @@ dependencies {
 2.货币代码：
 
 （1）currency\_code
-
-3.Google 统计sdk配置：
-
-（1） google\_tracking\_id
 {% endhint %}
 
 ## 混淆配置
@@ -236,23 +237,20 @@ ngamesAnalyticsSdk.recordEvent("purchase", map);
 ```java
 /**
  * 记录GoogleAnalysis事件
- * @param categoryId 事件类别
- * @param actionId   事件操作
- * @param labelId    事件标签
- * @param value      事件值
+ * @param eventName 事件名称
+ * @param params    事件统计参数
  */
-public void recordGAEvent(String categoryId, String actionId, String labelId, long value)
+public void recordGAEvent(String eventName, Map<String, String> params)
 ```
 
 > #### 示例
 
 ```java
 //记录事件：Google Analytics
-String categoryId = "game";
-String actionId = "level";
-String labelId = "level up";
-long value = 2;
-ngamesAnalyticsSdk.recordGAEvent(categoryId, actionId, labelId, value);
+String eventName = "level";
+Map<String, String> params = new HashMap<>();
+params.put("up", "1");
+ngamesAnalyticsSdk.recordGAEvent(eventName, params);
 ```
 
 ## 设置用户ID

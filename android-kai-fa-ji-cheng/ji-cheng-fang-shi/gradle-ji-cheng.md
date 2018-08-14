@@ -4,7 +4,7 @@
 
 在SDK文件下的  `附件/libs`目录下存在4个aar文件：
 
-1. gamesamba-sdk-3.3.4.aar（GameSamba SDK）
+1. gamesamba-sdk-3.3.5.aar（GameSamba SDK）
 2. library-facebook.aar （Facebook SDK）
 3. library-android-inapp-billing-v3.aar （谷歌支付 SDK）
 4. library-samsung-inapp-v5.aar（三星商店 SDK）
@@ -21,7 +21,7 @@ dependencies {
 	
 	// 添加依赖。注意，版本号必须一致。
 	// SDK基础功能 (必需)
-	compile(name: 'gamesamba-sdk-3.3.4', ext: 'aar')
+	compile(name: 'gamesamba-sdk-3.3.5', ext: 'aar')
 	// Facebook模块 (必需)
 	compile(name: 'library-facebook', ext: 'aar')
 	// Google支付模块 (必需)
@@ -42,8 +42,9 @@ dependencies {
     compile 'com.parse.bolts:bolts-android:1.4.0'
     // Google模块
     compile 'com.google.android.gms:play-services-auth:11.0.4'
-    compile 'com.google.android.gms:play-services-analytics:11.0.4'
     compile 'com.google.android.gms:play-services-ads:11.0.4'
+    // Google FireBase模块
+    compile 'com.google.firebase:firebase-core:11.0.4'
     // 网络请求模块
     compile 'com.squareup.okhttp3:okhttp:3.4.1'
     compile 'com.google.code.gson:gson:2.7'
@@ -58,7 +59,7 @@ dependencies {
 	
 	// 添加依赖。注意，版本号必须一致。
 	// SDK基础功能 (必需)
-	implementation(name: 'gamesamba-sdk-3.3.3', ext: 'aar')
+	implementation(name: 'gamesamba-sdk-3.3.5', ext: 'aar')
 	// Facebook模块 (必需)
 	implementation(name: 'library-facebook', ext: 'aar')
 	// Google支付模块 (必需)
@@ -79,12 +80,24 @@ dependencies {
     implementation 'com.parse.bolts:bolts-android:1.4.0'
     // Google模块
     implementation 'com.google.android.gms:play-services-auth:11.0.4'
-    implementation 'com.google.android.gms:play-services-analytics:11.0.4'
     implementation 'com.google.android.gms:play-services-ads:11.0.4'
+     // Google FireBase模块
+    implementation 'com.google.firebase:firebase-core:11.0.4'
     // 网络请求模块
     implementation 'com.squareup.okhttp3:okhttp:3.4.1'
     implementation 'com.google.code.gson:gson:2.7'
 }
+
+```
+
+在 build.gradle 文件底部添加FireBase插件：
+
+```java
+dependencies {
+    ...
+}
+//添加FireBase插件到底部
+apply plugin: 'com.google.gms.google-services'
 ```
 
 {% hint style="info" %}

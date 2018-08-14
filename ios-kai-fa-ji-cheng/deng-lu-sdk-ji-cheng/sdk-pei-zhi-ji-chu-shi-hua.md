@@ -8,7 +8,7 @@
 
 源文件部分代码如下, 使用时需要配置相应的facebook appid和 NGamesAppid即可
 
-```xml
+```markup
 <key>LSApplicationQueriesSchemes</key>
 <array>
     <string>fbapi</string>
@@ -43,7 +43,7 @@
 
 在`- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions` 方法中配置如下代码:
 
-```objective-c
+```text
 [NGAGameLoginKit shareInstance].languageCode = @"en";
 [[NGAGameLoginKit shareInstance] setupGameHandlerWithApplication:application LaunchingWithOptions:launchOptions];
 ```
@@ -63,7 +63,7 @@
 
 ### 并配置相应的OpenURL方法:
 
-```objective-c
+```text
 ///iOS 9 之前使用的方法
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
     //FB的OpenURL方法

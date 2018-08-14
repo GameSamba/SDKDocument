@@ -36,12 +36,9 @@
 >
 > nanopb.framework
 
-
-
-### 并在Build Settings设置如下参数:
+## 并在Build Settings设置如下参数:
 
 ![](../../.gitbook/assets/snipaste_2018-05-03_11-50-51.png)
 
+注意拼写为: **-ObjC**
 
-
-注意拼写为:  **-ObjC**
