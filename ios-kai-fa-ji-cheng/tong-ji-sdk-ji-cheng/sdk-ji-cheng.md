@@ -6,42 +6,25 @@
 
 包括
 
-> NGACountSDK.framework
->
-> AdSupport.framework
->
-> iAd.framework
->
-> SystemConfiguration.framework
->
 > AppsFlyerLib.framework
 >
 > Bolts.framework
 >
 > FBSDKCoreKit.framework
 >
-> FirebaseAnalytics.framework
+> GoogleAnalytics.framework
 >
-> FirebaseCore.framework
+> NGACountSDK.framework
 >
-> FirebaseCoreDiagnostics.framework
+> AdSupport.framework
 >
-> FirebaseInstanceID.framework
+> iAd.framework
 >
-> GoogleUtilities.framework
+> CoreData.framework
 >
-> GoogleAppMeasurement.framework
+> SystemConfiguration.framework
 >
-> MeasurementNanoPB.framework
+> libsqlite3.tbd
 >
-> nanopb.framework
+> libz.tbd
 
-
-
-### 并在Build Settings设置如下参数:
-
-![](../../.gitbook/assets/snipaste_2018-05-03_11-50-51.png)
-
-
-
-注意拼写为:  **-ObjC**

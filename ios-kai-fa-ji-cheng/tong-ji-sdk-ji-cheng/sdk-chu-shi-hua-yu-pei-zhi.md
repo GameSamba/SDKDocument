@@ -6,12 +6,12 @@
 
 在`- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions` 方法中配置如下代码:
 
-```objective-c
+```text
 //启动FB, 在集成登录SDK的情况下, 此行代码跳过
 //[[NGAAppEvents sharedInstance] fbApplication:application didFinishLaunchingWithOptions:launchOptions];
 
-//配置Google Firebase
-[[NGAAppEvents sharedInstance] gaConfigure];
+//配置GoogleAnalytics
+[[NGAAppEvents sharedInstance] gaTrackerWithTrackingId:@"UA-109913105-1"];
 
 //配置启动配置的相关参数
 NGAConfig* config = NGAConfig.new;
@@ -24,7 +24,7 @@ config.enableAddIDFA = YES;                            //开启IDFA追踪
 
 ### 还需要配置如下代码:
 
-```objective-c
+```text
 -(void)applicationDidBecomeActive:(UIApplication *)application{
     [[NGAAppEvents sharedInstance] afTrackAppLaunch];
     [[NGAAppEvents sharedInstance] fbActivateApp];
@@ -38,7 +38,7 @@ config.enableAddIDFA = YES;                            //开启IDFA追踪
 
 ### openURL方法
 
-```objective-c
+```text
 // Reports app open from deeplink for iOS 8 or below (DEPRECATED)
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString*)sourceApplication annotation:(id)annotation{
     [[NGAAppEvents sharedInstance] afHandleOpenURL:url sourceApplication:sourceApplication withAnnotation:annotation];
@@ -62,7 +62,7 @@ config.enableAddIDFA = YES;                            //开启IDFA追踪
 
 ![](../../.gitbook/assets/tu-pian-1.png)SourceCode下为:
 
-```xml
+```markup
 <array>
   <dict>
     <key>CFBundleURLSchemes</key>

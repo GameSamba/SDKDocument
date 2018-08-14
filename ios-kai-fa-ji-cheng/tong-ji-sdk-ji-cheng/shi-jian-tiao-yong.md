@@ -1,19 +1,36 @@
 # 事件调用
 
-一般情况下事件调用方法为:
+除去GoogleAnalytics的事件调用方法为:
 
-```objective-c
+```text
 [NGAAppEvents.sharedInstance recordEvent:@"TestEventA"];
 [NGAAppEvents.sharedInstance recordEvent:@"TestEventC" values:@{@"level" : @"10"}];
 ```
 
-Google Firebase的事件调用方法接口为:
+GoogleAnalytics的事件调用方法比较特殊, 接口方法为:
 
-```objective-c
-- (void)gaLogEventWithName:(NSString *)name parameters:(NSDictionary<NSString *, id> *)parameters;
+```text
+- (void)gaSendEventWithCategory:(NSString *)category action:(NSString *)action label:(NSString *)label value:(NSNumber *)value;
 ```
 
+例如:
 
+```text
+[NGAAppEvents.sharedInstance gaSendEventWithCategory:@"Player_Info"
+                                              action:@"Level"
+                                               label:nil
+                                               value:@(888)];
+```
 
-根据需求去确认是否调用Google Firebase的事件记录.
+注意:![](../../.gitbook/assets/tu-pian-2.png)
+
+综上, 也就是常规情况下, 一次完整的事件调用需要分别调用
+
+`- (void)recordEvent:(NSString *)key values:(NSDictionary *)values`
+
+和
+
+`- (void)gaSendEventWithCategory:(NSString *)category action:(NSString *)action label:(NSString *)label value:(NSNumber *)value`
+
+两个方法
 
