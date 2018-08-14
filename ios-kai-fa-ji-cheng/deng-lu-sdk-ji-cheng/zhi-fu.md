@@ -2,7 +2,7 @@
 
 ## 1. 初始化商品集合并设置代理方法
 
-```text
+```objective-c
 - (void)shopsInit{
     //初始化iap对象
     if(![IAPShare sharedHelper].iap) {
@@ -45,7 +45,7 @@
 
 ## 2. 发起购买物品的请求
 
-```text
+```objective-c
 - (void)shopBtnClicked{
     //获取商品对象
     SKProduct* product =[[IAPShare sharedHelper].iap.products objectAtIndex:1];
