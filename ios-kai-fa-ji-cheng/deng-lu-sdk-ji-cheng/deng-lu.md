@@ -2,7 +2,7 @@
 
 ## 1. 设置代理方法及相关的参数
 
-```text
+```objective-c
 //设置服务器ID, 必要
 [NGAGameLoginKit shareInstance].sid = @"1"; 
 
@@ -17,7 +17,7 @@
 
 ## 2.  游客登录
 
-```text
+```objective-c
     [[NGAGameLoginKit shareInstance] guestUserLoginSuccess:^(UserModel *user) {
         //TODO: 此处返回Guest User
 
@@ -28,7 +28,7 @@
 
 ## 3. Facebook 登录
 
-```text
+```objective-c
     [[NGAGameLoginKit shareInstance] fbLoginSuccess:^(UserModel *user) {
         NSLog(@"facebook 用户ID:%@", [FBSDKAccessToken currentAccessToken].userID);
         //TODO: 此处返回绑定fb的 User
@@ -40,7 +40,7 @@
 
 ## 4. GameCenter登录
 
-```text
+```objective-c
     [[NGAGameLoginKit shareInstance] gameCenterLoginSuccess:^(UserModel *user) {
         //TODO: 此处返回绑定GameCenter的User
 

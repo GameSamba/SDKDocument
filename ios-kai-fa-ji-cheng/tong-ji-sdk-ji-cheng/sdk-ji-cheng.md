@@ -6,25 +6,42 @@
 
 包括
 
-> AppsFlyerLib.framework
->
-> Bolts.framework
->
-> FBSDKCoreKit.framework
->
-> GoogleAnalytics.framework
->
 > NGACountSDK.framework
 >
 > AdSupport.framework
 >
 > iAd.framework
 >
-> CoreData.framework
->
 > SystemConfiguration.framework
 >
-> libsqlite3.tbd
+> AppsFlyerLib.framework
 >
-> libz.tbd
+> Bolts.framework
+>
+> FBSDKCoreKit.framework
+>
+> FirebaseAnalytics.framework
+>
+> FirebaseCore.framework
+>
+> FirebaseCoreDiagnostics.framework
+>
+> FirebaseInstanceID.framework
+>
+> GoogleUtilities.framework
+>
+> GoogleAppMeasurement.framework
+>
+> MeasurementNanoPB.framework
+>
+> nanopb.framework
 
+
+
+### 并在Build Settings设置如下参数:
+
+![](../../.gitbook/assets/snipaste_2018-05-03_11-50-51.png)
+
+
+
+注意拼写为:  **-ObjC**

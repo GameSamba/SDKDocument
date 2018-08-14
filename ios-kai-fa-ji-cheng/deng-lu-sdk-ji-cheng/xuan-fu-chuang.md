@@ -1,6 +1,6 @@
 # 悬浮窗
 
-```text
+```objective-c
     //获取悬浮窗控件并添加到视图中
     NGAGameDragBallView *dragballView=[[NGAGameDragBallView alloc] initWithFrame:CGRectMake(0, 250, 0, 0)];
     [self.view addSubview:dragballView];
