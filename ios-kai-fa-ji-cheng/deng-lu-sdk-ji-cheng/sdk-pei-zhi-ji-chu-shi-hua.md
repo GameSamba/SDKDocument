@@ -43,7 +43,7 @@
 
 在`- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions` 方法中配置如下代码:
 
-```text
+```objectivec
 [NGAGameLoginKit shareInstance].languageCode = @"en";
 [[NGAGameLoginKit shareInstance] setupGameHandlerWithApplication:application LaunchingWithOptions:launchOptions];
 ```
@@ -63,7 +63,7 @@
 
 ### 并配置相应的OpenURL方法:
 
-```text
+```objectivec
 ///iOS 9 之前使用的方法
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
     //FB的OpenURL方法

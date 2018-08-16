@@ -2,14 +2,14 @@
 
 一般情况下事件调用方法为:
 
-```text
+```objectivec
 [NGAAppEvents.sharedInstance recordEvent:@"TestEventA"];
 [NGAAppEvents.sharedInstance recordEvent:@"TestEventC" values:@{@"level" : @"10"}];
 ```
 
 Google Firebase的事件调用方法接口为:
 
-```text
+```objectivec
 - (void)gaLogEventWithName:(NSString *)name parameters:(NSDictionary<NSString *, id> *)parameters;
 ```
 

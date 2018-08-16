@@ -8,7 +8,7 @@
 >
 > 登录SDK中有如下方法:
 >
-> ```text
+> ```objectivec
 > //获取上一次成功登录的用户ID
 > if([NGAGameLoginKit shareInstance].lastUser.userId) {
 >   //TODO 设置customerUserID
