@@ -3,7 +3,7 @@
 ## 1. 设置代理方法及相关的参数
 
 ```objectivec
-//设置服务器ID, 必要
+//设置服务器ID, 必要, 和购买物品时传入的sid需一致
 [NGAGameLoginKit shareInstance].sid = @"1"; 
 
 //设置遵循NGAGameLoginKitDelegate协议并实现代理对象方法获取通过UI登陆以及用户切换返回的User, 比如GameSamba, 账号切换登录等情况
