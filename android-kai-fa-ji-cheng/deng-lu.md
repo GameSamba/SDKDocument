@@ -118,9 +118,9 @@ GoogleSocialHelper.googleLogin(MainActivity.this);
 
  [Facebook和Google登录结果回调](deng-lu.md#facebook-he-google-deng-lu-jie-guo-hui-tiao)
 
-## Facebook和Google登录结果回调
+## Facebook和Google登录，切换帐号结果回调
 
-如果使用了Facebook或者Google登录，必须实现 `onActivityResult` 中的回调方法进行结果回调。
+如果使用了（1）Facebook或者Google登录（2）切换帐号，必须实现 `onActivityResult` 中的回调方法进行结果回调。
 
 ####  添加登录回调：
 
@@ -151,7 +151,17 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
                 break;
         }
         return;
-    }
+    } else if (requestCode == Const.THIRD_ACCOUNT_MANAGER_REQUEST_CODE) {
+            //帐号管理回调
+            switch (resultCode) {
+                case Const.INTENT_RESULT_CHANGE_ACCOUNT_OK:
+                    //切换帐号成功
+                    Log.d("NgamesSdk", "切换帐号成功");
+                    AccountResult changeUser = (AccountResult) data.getSerializableExtra(Const.LOGIN_USER);
+                    logText.setText("切换帐号 . user type:" + changeUser.getAccountType() + " ,user id=" + changeUser.getData().getId());
+                    break;
+            }
+        }
     ...
     super.onActivityResult(requestCode, resultCode, data);
 }
