@@ -157,3 +157,29 @@ ngamesSdk.setDebug(true);//设置Debug模式
 
 ![](blob:https://gamesamba.gitbook.io/226c1cbe-210e-4592-9856-e5ba1c9aa02a)![](blob:https://gamesamba.gitbook.io/953fad3c-8583-45f9-bb59-9925cb7b1891)
 
+## 设置是否支持帐号切换 {#ji-lu-tong-ji-shi-jian}
+
+> #### API介绍 {#api-jie-shao}
+
+设置SDK支持帐号切换（默认开启）
+
+> #### API原型 {#api-yuan-xing-2}
+
+```java
+/**
+ * 设置支持切换帐号
+ * @param isSupport
+ */
+public void setSupportSwitchAccount(boolean isSupport)
+```
+
+> #### 示例 {#shi-li}
+
+```java
+ngamesSdk.setSupportSwitchAccount(true);//设置不支持帐号切换
+```
+
+{% hint style="info" %}
+此方法设置后，会在帐号管理界面显示/隐藏切换帐号开关 
+{% endhint %}
+
