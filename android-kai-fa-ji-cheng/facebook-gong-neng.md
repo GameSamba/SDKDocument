@@ -1,10 +1,10 @@
 # Facebook 功能
 
-## 分享
+## 分享链接
 
 > ####  API介绍
 
-Facebook分享功能
+Facebook分享链接功能
 
 > #### API原型
 
@@ -37,6 +37,45 @@ ngamesSdk.getFacebookSocialHelper().share("http://tg.gamesamba.com/default/share
     @Override
     public void onError(FacebookException error) {
         //分享失败
+        Toast.makeText(MainActivity.this, "error！", Toast.LENGTH_SHORT).show();
+    }
+});
+```
+
+## 分享图片
+
+> ####  API介绍
+
+Facebook分享图片功能
+
+> #### API原型
+
+```java
+/**
+ * 分享图片
+ * @param photoPath 本地图片地址
+ * @param shareCallback 分享回调
+ */
+public void shareImage(String photoPath, FacebookCallback<Sharer.Result> shareCallback)
+```
+
+> #### 示例
+
+```java
+String imagePath = "/storage/emulated/0/game321/image.png";
+ngamesSdk.getFacebookSocialHelper().shareImage(imagePath, new FacebookCallback<Sharer.Result>() {
+    @Override
+    public void onSuccess(Sharer.Result result) {
+        Toast.makeText(MainActivity.this, "succeed", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onCancel() {
+        Toast.makeText(MainActivity.this, "canceled！", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onError(FacebookException e) {
         Toast.makeText(MainActivity.this, "error！", Toast.LENGTH_SHORT).show();
     }
 });
