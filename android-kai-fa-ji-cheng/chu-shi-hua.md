@@ -31,7 +31,7 @@ public static NgamesSdk getInstance(Context context, Activity activity, String l
 > ####  lang 参数说明
 
 | 语言（lang） | 描述 |
-| --- | --- | --- | --- | --- | --- | --- |
+| :--- | :--- |
 | Const.LANG\_EN | 英文 |
 | Const.LANG\_CN | 简体中文 |
 | Const.LANG\_TW | 繁体中文 |
