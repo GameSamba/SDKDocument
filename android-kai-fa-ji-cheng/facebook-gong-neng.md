@@ -53,10 +53,10 @@ Facebook分享图片功能
 ```java
 /**
  * 分享图片
- * @param photoPath 本地图片地址
+ * @param imagePath 本地图片地址
  * @param shareCallback 分享回调
  */
-public void shareImage(String photoPath, FacebookCallback<Sharer.Result> shareCallback)
+public void shareImage(String imagePath, FacebookCallback<Sharer.Result> shareCallback)
 ```
 
 > #### 示例

@@ -35,10 +35,11 @@ dependencies {
     // 统计功能SDK (必需)
     compile(name: 'gamesamba-analytics-sdk-3.3.5', ext: 'aar')
     // Appsflyer模块
-    compile 'com.appsflyer:af-android-sdk:4+@aar'
+    compile 'com.appsflyer:af-android-sdk:4.8.14@aar'
     compile 'com.android.installreferrer:installreferrer:1.0'
     // Google FireBase模块
     compile 'com.google.firebase:firebase-core:11.0.4'
+    compile 'com.google.firebase:firebase-messaging:11.0.4'
 }
 ```
 
@@ -51,10 +52,11 @@ dependencies {
     // 统计功能SDK (必需)
     implementation(name: 'gamesamba-analytics-sdk-3.3.5', ext: 'aar')
     // Appsflyer模块
-    implementation 'com.appsflyer:af-android-sdk:4+@aar'
+    implementation 'com.appsflyer:af-android-sdk:4.8.14@aar'
     implementation 'com.android.installreferrer:installreferrer:1.0'
     // Google FireBase模块
     implementation 'com.google.firebase:firebase-core:11.0.4'
+    implementation 'com.google.firebase:firebase-messaging:11.0.4'
 }
 ```
 
@@ -91,6 +93,14 @@ dependencies {
                 <action android:name="com.android.vending.INSTALL_REFERRER" />
             </intent-filter>
         </receiver>
+        
+        <!-- Appsflyer 追踪卸载服务-->
+        <service
+            android:name="com.appsflyer.FirebaseInstanceIdListener">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
     </application>
 </manifest>
 ```
@@ -127,6 +137,12 @@ dependencies {
 
 ```groovy
 -dontwarn com.android.installreferrer
+
+-keep class com.appsflyer.** { *; }
+-dontwarn com.appsflyer.**
+-keep public class com.google.firebase.iid.FirebaseInstanceId {
+    public *;
+}
 ```
 
 ## 初始化
