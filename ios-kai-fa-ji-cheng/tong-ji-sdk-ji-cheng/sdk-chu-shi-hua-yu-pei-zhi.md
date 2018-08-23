@@ -2,7 +2,7 @@
 
 ## 1. 在AppDelegate文件中配置初始化代码
 
-**导入头文件 **`#import <NGALoginSDK/NGALoginSDK.h>`
+**导入头文件** `#import <NGALoginSDK/NGALoginSDK.h>`
 
 在`- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions` 方法中配置如下代码:
 
