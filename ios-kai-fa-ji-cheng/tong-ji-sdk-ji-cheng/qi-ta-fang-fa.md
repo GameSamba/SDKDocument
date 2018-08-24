@@ -1,6 +1,6 @@
-# 其他方法
+# 其他说明
 
-`currencyCode` 用来设置货币单位, 默认值为`@"USD"` , 设置值可参考 [http://www.xe.com/iso4217.php](http://www.xe.com/iso4217.php)
+参考`NGAAppEvents.h`文件中
 
 `customerUserID` 用来在发送事件时附带上相关的用户ID, 所以需要尽快配置
 
@@ -15,5 +15,4 @@
 > }
 > ```
 >
-> 所以可以在用户未登录之前通过lastUser设置customerUserID, 在用户登录之后再设置一遍登录用户的UserID, 这样的话就比较准确了
-
+> 所以可以在用户**未登录**之前通过lastUser设置customerUserID, 在用户**登录之后**再通过登录用户的UserID设置一下customUserID, 这样就比较准确了
