@@ -235,11 +235,42 @@ public void recordEvent(String eventName, HashMap eventValues)
 > #### 示例
 
 ```java
- //记录事件，购买
+//记录事件
 HashMap<String, Float> map = new HashMap<>();
 map.put("goods_id", 1);
 map.put("goods_count", 10);
 ngamesAnalyticsSdk.recordEvent("purchase", map);
+```
+
+## 记录购买事件
+
+> #### API介绍
+
+追踪购买事件
+
+> #### API原型
+
+```java
+/**
+ * 追踪购买事件
+ * @param itemId       商品ID
+ * @param itemType     商品类型
+ * @param revenue      收入
+ * @param currencyCode 货币单位（ISO 4217 代码），例如"USD","HKD","CNY","TWD"等，更多参考https://www.xe.com/iso4217.php
+ * @param serverID     服务器ID
+*/
+public void recordPurchaseEvent(String itemId, String itemType, float revenue, String currencyCode, String serverID)
+```
+
+> #### 示例
+
+```java
+String itemId = "good1";//商品ID
+String itemType = "good";//商品类型
+float revenue = 2.99f;//商品价格
+String currencyCode = "USD";//货币单位
+String serverID = "1";//服务器ID
+ngamesAnalyticsSdk.recordPurchaseEvent(itemId, itemType, revenue, currencyCode, serverID);
 ```
 
 ## 记录谷歌统计事件

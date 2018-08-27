@@ -15,9 +15,7 @@ Google Firebase的事件调用方法接口为:
 
 根据需求去确认是否调用Google Firebase的事件记录.
 
-
-
-#### Purchase事件单独调用
+## Purchase事件单独调用
 
 ```objectivec
 /**
@@ -31,8 +29,6 @@ Google Firebase的事件调用方法接口为:
  */
 - (void)recordPurchaseEventWithContentID:(NSString *)contentID contentType:(NSString *)contentType revenue:(double)revenue currency:(NSString *)currency serverID:(NSString *)serverID;
 ```
-
-
 
 Example:
 
