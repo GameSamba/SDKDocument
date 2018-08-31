@@ -10,7 +10,7 @@
 >
 > ```objectivec
 > //获取上一次成功登录的用户ID
-> if([NGAGameLoginKit shareInstance].lastUser.userId) {
+> if([NGAGameLoginKit shareInstance].lastUser.userId.length > 0) {
 >   //TODO 设置customerUserID
 > }
 > ```
