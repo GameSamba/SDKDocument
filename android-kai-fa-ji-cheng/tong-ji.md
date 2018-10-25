@@ -149,7 +149,7 @@ dependencies {
 
 ### （1）Application
 
-#### 在项目中的Application\#onCreate初始化 {#src-cnt-0-0}
+#### 在项目中的Application\#onCreate初始化 <a id="src-cnt-0-0"></a>
 
 ```java
 //是否是调试模式
@@ -186,7 +186,7 @@ public static void init(Application application, boolean isDebug)
 
 ### （2）Activity
 
-#### 在主Activity\#onCreate初始化 {#src-cnt-0-0}
+#### 在主Activity\#onCreate初始化 <a id="src-cnt-0-0"></a>
 
 ```java
 private NgamesAnalyticsSdk ngamesAnalyticsSdk;
