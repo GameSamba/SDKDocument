@@ -80,6 +80,11 @@ dependencies {
             android:name="com.ngames.analytics.AppsflyerKey"
             android:value="@string/appsflyer_key" />
 
+        <!--Google统计,发送者ID，接入统计SDK需要，AF卸载事件也需要-->
+        <meta-data
+            android:name="com.ngames.analytics.GoogleSenderId"
+            android:value="@string/google_sender_id" />
+
         <!--货币代码，例如： USD（美元），接入统计SDK需要-->
         <meta-data
             android:name="com.ngames.analytics.CurrencyCode"
@@ -117,6 +122,8 @@ dependencies {
 <string name="appsflyer_key">appsflyer_key</string>
 <!--货币代码，例如： USD（美元）-->
 <string name="currency_code">USD</string>
+<!--统计模块，谷歌卸载，发送者ID-->
+<string name="google_sender_id">google_sender_id</string>
 ```
 
 {% hint style="danger" %}
@@ -129,6 +136,10 @@ dependencies {
 2.货币代码：
 
 （1）currency\_code
+
+3.统计模块，谷歌卸载，发送者ID
+
+（1）google\_sender\_id
 {% endhint %}
 
 ## 混淆配置
@@ -327,4 +338,12 @@ ngamesAnalyticsSdk.setUserId("100");
 {% hint style="info" %}
 注意：此方法需要在登录成功的回调中，进行设置
 {% endhint %}
+
+## 记录AF卸载事件
+
+需要配置对应的（参考 本页开始的配置）：
+
+1. `AndroidManifest.xml`中`meta-data`的`com.ngames.analytics.GoogleSenderId`
+2. `AndroidManifest.xml`中`service`的 `com.appsflyer.FirebaseInstanceIdListener`
+3. `res/values` 中配置`string.xml` 的 `google_sender_id`
 
