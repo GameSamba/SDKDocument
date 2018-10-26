@@ -142,6 +142,10 @@ dependencies {
 （1）google\_sender\_id
 {% endhint %}
 
+这部分的KEY由产品提供：
+
+![google\_sender\_id](../.gitbook/assets/analytics_1.png)
+
 ## 混淆配置
 
 如果你的apk最终会经过代码混淆，请在proguard配置文件中额外再加入以下代码:
