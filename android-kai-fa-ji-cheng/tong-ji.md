@@ -90,6 +90,11 @@ dependencies {
             android:name="com.ngames.analytics.CurrencyCode"
             android:value="@string/currency_code" />
 
+        <!--统计APP ID，接入统计SDK需要-->
+        <meta-data
+            android:name="com.ngames.analytics.AppId"
+            android:value="@string/analytics_app_id" />
+            
         <!-- Appsflyer广播接收器 -->
         <receiver 
             android:name="com.appsflyer.MultipleInstallBroadcastReceiver" 
@@ -118,6 +123,8 @@ dependencies {
 
 ```markup
 <!--统计模块-->
+<!--统计APP ID，注：ngame平台：前缀‘ngames-xxx’；gamesamba平台：前缀‘gamesamba-xxx’-->
+<string name="analytics_app_id">gamesamba-{app_id}</string>
 <!--Appflyer的KEY，请将 appsflyer_key 替换为自己的Appflyer的KEY-->
 <string name="appsflyer_key">appsflyer_key</string>
 <!--货币代码，例如： USD（美元）-->
@@ -129,15 +136,21 @@ dependencies {
 {% hint style="danger" %}
 接入统计必须配置以上配置：
 
-1.Appsflyer配置：
+1.统计AppId配置
+
+（1）analytics\_app\_id
+
+注：ngame平台：前缀‘ngames-xxx’；gamesamba平台：前缀‘gamesamba-xxx’
+
+2.Appsflyer配置：
 
 （1）appsflyer\_key
 
-2.货币代码：
+3.货币代码：
 
 （1）currency\_code
 
-3.统计模块，谷歌卸载，发送者ID
+4.统计模块，谷歌卸载，发送者ID
 
 （1）google\_sender\_id
 {% endhint %}
