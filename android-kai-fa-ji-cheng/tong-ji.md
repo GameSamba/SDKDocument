@@ -60,6 +60,16 @@ dependencies {
 }
 ```
 
+在 build.gradle 文件底部添加FireBase插件：
+
+```java
+dependencies {
+    ...
+}
+//添加FireBase插件到底部
+apply plugin: 'com.google.gms.google-services'
+```
+
 ## 
 
 ## 权限和组件
