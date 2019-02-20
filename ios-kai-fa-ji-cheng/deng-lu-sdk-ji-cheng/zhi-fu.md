@@ -2,7 +2,7 @@
 
 ## 1. 初始化商品集合并设置代理方法
 
-```text
+```objectivec
 - (void)shopsInit{
     //初始化iap对象
     if(![IAPShare sharedHelper].iap) {
@@ -15,7 +15,7 @@
                         @"com.ngames.mobile.ngamesloginapp.shop5",
                         nil];
         [IAPShare sharedHelper].iap = [[IAPHelper alloc] initWithProductIdentifiers:goods];
-        //设置接收苹果支付回调的代理对象
+        //遵循 IAPHelperDelegate 协议 并设置苹果支付回调的代理对象
         [IAPShare sharedHelper].iap.delegate = self;
     }
 
@@ -45,7 +45,7 @@
 
 ## 2. 发起购买物品的请求
 
-```text
+```objectivec
 - (void)shopBtnClicked{
     //获取商品对象
     SKProduct* product =[[IAPShare sharedHelper].iap.products objectAtIndex:1];

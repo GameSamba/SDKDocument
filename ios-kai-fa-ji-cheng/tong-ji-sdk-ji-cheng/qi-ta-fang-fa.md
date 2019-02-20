@@ -1,6 +1,6 @@
 # 其他方法
 
-`currencyCode` 用来设置货币单位, 默认值为`@"USD"` , 设置值可参考 [http://www.xe.com/iso4217.php](http://www.xe.com/iso4217.php)
+参考`NGAAppEvents.h`文件中
 
 `customerUserID` 用来在发送事件时附带上相关的用户ID, 所以需要尽快配置
 
@@ -8,12 +8,18 @@
 >
 > 登录SDK中有如下方法:
 >
-> ```text
+> ```objectivec
 > //获取上一次成功登录的用户ID
-> if([NGAGameLoginKit shareInstance].lastUser.userId) {
+> if([NGAGameLoginKit shareInstance].lastUser.userId.length > 0) {
 >   //TODO 设置customerUserID
 > }
 > ```
 >
-> 所以可以在用户未登录之前通过lastUser设置customerUserID, 在用户登录之后再设置一遍登录用户的UserID, 这样的话就比较准确了
+> 所以可以在用户**未登录**之前通过lastUser设置customerUserID, 在用户**登录之后**再通过登录用户的UserID设置一下customUserID, 这样就比较准确了
+
+## 购买事件方法会要求传递货币单位
+
+`NGAConfig.h`头文件中, 属性`currencyCode`可以设置全局货币单位
+
+如果设置了`currencyCode`的值,并且在购买事件方法中货币参数填写为`nil`, 那么购买事件函数内部会自动获取全局货币单位.
 

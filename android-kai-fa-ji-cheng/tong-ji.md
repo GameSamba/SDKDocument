@@ -10,11 +10,17 @@ description: 统计功能
 如果游戏需要接入统计功能，需要额外导入GamesabaAnalysis的Sdk，并且按照步骤接入。
 {% endhint %}
 
+## 配置FireBase，下载
+
+1.添加、配置应用到Firebase（[控制台](https://console.firebase.google.com/)）（由产品人员进行配置）
+
+2.下载 `google-services.json` 文件， 复制到项目的模块文件夹（通常是 `app/`），请执行此操作。
+
 ## Gradle集成
 
 在SDK文件下的 `附件/libs`目录下存以下的文件：
 
-1. gamesamba-analytics-sdk-3.3.4.aar（GameSamba 统计SDK）
+1. gamesamba-analytics-sdk-3.3.5.aar（GameSamba 统计SDK）
 
 将以上这个aar文件导入到主工程`libs` 目录下
 
@@ -27,10 +33,13 @@ dependencies {
     ...
 
     // 统计功能SDK (必需)
-    compile(name: 'gamesamba-analytics-sdk-3.3.4', ext: 'aar')
+    compile(name: 'gamesamba-analytics-sdk-3.3.5', ext: 'aar')
     // Appsflyer模块
-    compile 'com.appsflyer:af-android-sdk:4+@aar'
+    compile 'com.appsflyer:af-android-sdk:4.8.14@aar'
     compile 'com.android.installreferrer:installreferrer:1.0'
+    // Google FireBase模块
+    compile 'com.google.firebase:firebase-core:11.0.4'
+    compile 'com.google.firebase:firebase-messaging:11.0.4'
 }
 ```
 
@@ -41,12 +50,27 @@ dependencies {
     ...
 
     // 统计功能SDK (必需)
-    implementation(name: 'gamesamba-analytics-sdk-3.3.4', ext: 'aar')
+    implementation(name: 'gamesamba-analytics-sdk-3.3.5', ext: 'aar')
     // Appsflyer模块
-    implementation 'com.appsflyer:af-android-sdk:4+@aar'
+    implementation 'com.appsflyer:af-android-sdk:4.8.14@aar'
     implementation 'com.android.installreferrer:installreferrer:1.0'
+    // Google FireBase模块
+    implementation 'com.google.firebase:firebase-core:11.0.4'
+    implementation 'com.google.firebase:firebase-messaging:11.0.4'
 }
 ```
+
+在 build.gradle 文件底部添加FireBase插件：
+
+```java
+dependencies {
+    ...
+}
+//添加FireBase插件到底部
+apply plugin: 'com.google.gms.google-services'
+```
+
+## 
 
 ## 权限和组件
 
@@ -66,16 +90,21 @@ dependencies {
             android:name="com.ngames.analytics.AppsflyerKey"
             android:value="@string/appsflyer_key" />
 
-        <!--Google统计追踪ID，接入统计SDK需要-->
+        <!--Google统计,发送者ID，接入统计SDK需要，AF卸载事件也需要-->
         <meta-data
-            android:name="com.ngames.analytics.GoogleTrackingId"
-            android:value="@string/google_tracking_id" />
+            android:name="com.ngames.analytics.GoogleSenderId"
+            android:value="@string/google_sender_id" />
 
         <!--货币代码，例如： USD（美元），接入统计SDK需要-->
         <meta-data
             android:name="com.ngames.analytics.CurrencyCode"
             android:value="@string/currency_code" />
 
+        <!--统计APP ID，接入统计SDK需要-->
+        <meta-data
+            android:name="com.ngames.analytics.AppId"
+            android:value="@string/analytics_app_id" />
+            
         <!-- Appsflyer广播接收器 -->
         <receiver 
             android:name="com.appsflyer.MultipleInstallBroadcastReceiver" 
@@ -84,6 +113,14 @@ dependencies {
                 <action android:name="com.android.vending.INSTALL_REFERRER" />
             </intent-filter>
         </receiver>
+        
+        <!-- Appsflyer 追踪卸载服务-->
+        <service
+            android:name="com.appsflyer.FirebaseInstanceIdListener">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
     </application>
 </manifest>
 ```
@@ -96,29 +133,41 @@ dependencies {
 
 ```markup
 <!--统计模块-->
+<!--统计APP ID，注：ngame平台：前缀‘ngames-xxx’；gamesamba平台：前缀‘gamesamba-xxx’-->
+<string name="analytics_app_id">gamesamba-{app_id}</string>
 <!--Appflyer的KEY，请将 appsflyer_key 替换为自己的Appflyer的KEY-->
 <string name="appsflyer_key">appsflyer_key</string>
 <!--货币代码，例如： USD（美元）-->
 <string name="currency_code">USD</string>
-<!--Google统计追踪ID，，请将 google_tracking_id 替换为自己的谷歌统计的tracking_id-->
-<string name="google_tracking_id">google_tracking_id</string>
+<!--统计模块，谷歌卸载，发送者ID-->
+<string name="google_sender_id">google_sender_id</string>
 ```
 
 {% hint style="danger" %}
 接入统计必须配置以上配置：
 
-1.Appsflyer配置：
+1.统计AppId配置
+
+（1）analytics\_app\_id
+
+注：ngame平台：前缀‘ngames-xxx’；gamesamba平台：前缀‘gamesamba-xxx’
+
+2.Appsflyer配置：
 
 （1）appsflyer\_key
 
-2.货币代码：
+3.货币代码：
 
 （1）currency\_code
 
-3.Google 统计sdk配置：
+4.统计模块，谷歌卸载，发送者ID
 
-（1） google\_tracking\_id
+（1）google\_sender\_id
 {% endhint %}
+
+这部分的KEY由产品提供：
+
+![google\_sender\_id](../.gitbook/assets/analytics_1.png)
 
 ## 混淆配置
 
@@ -126,13 +175,19 @@ dependencies {
 
 ```groovy
 -dontwarn com.android.installreferrer
+
+-keep class com.appsflyer.** { *; }
+-dontwarn com.appsflyer.**
+-keep public class com.google.firebase.iid.FirebaseInstanceId {
+    public *;
+}
 ```
 
 ## 初始化
 
 ### （1）Application
 
-#### 在项目中的Application\#onCreate初始化 {#src-cnt-0-0}
+#### 在项目中的Application\#onCreate初始化 <a id="src-cnt-0-0"></a>
 
 ```java
 //是否是调试模式
@@ -169,7 +224,7 @@ public static void init(Application application, boolean isDebug)
 
 ### （2）Activity
 
-#### 在主Activity\#onCreate初始化 {#src-cnt-0-0}
+#### 在主Activity\#onCreate初始化 <a id="src-cnt-0-0"></a>
 
 ```java
 private NgamesAnalyticsSdk ngamesAnalyticsSdk;
@@ -218,11 +273,42 @@ public void recordEvent(String eventName, HashMap eventValues)
 > #### 示例
 
 ```java
- //记录事件，购买
+//记录事件
 HashMap<String, Float> map = new HashMap<>();
 map.put("goods_id", 1);
 map.put("goods_count", 10);
 ngamesAnalyticsSdk.recordEvent("purchase", map);
+```
+
+## 记录购买事件
+
+> #### API介绍
+
+追踪购买事件
+
+> #### API原型
+
+```java
+/**
+ * 追踪购买事件
+ * @param itemId       商品ID
+ * @param itemType     商品类型
+ * @param revenue      收入
+ * @param currencyCode 货币单位（ISO 4217 代码），例如"USD","HKD","CNY","TWD"等，更多参考https://www.xe.com/iso4217.php
+ * @param serverID     服务器ID
+*/
+public void recordPurchaseEvent(String itemId, String itemType, float revenue, String currencyCode, String serverID)
+```
+
+> #### 示例
+
+```java
+String itemId = "good1";//商品ID
+String itemType = "good";//商品类型
+float revenue = 2.99f;//商品价格
+String currencyCode = "USD";//货币单位
+String serverID = "1";//服务器ID
+ngamesAnalyticsSdk.recordPurchaseEvent(itemId, itemType, revenue, currencyCode, serverID);
 ```
 
 ## 记录谷歌统计事件
@@ -236,23 +322,20 @@ ngamesAnalyticsSdk.recordEvent("purchase", map);
 ```java
 /**
  * 记录GoogleAnalysis事件
- * @param categoryId 事件类别
- * @param actionId   事件操作
- * @param labelId    事件标签
- * @param value      事件值
+ * @param eventName 事件名称
+ * @param params    事件统计参数
  */
-public void recordGAEvent(String categoryId, String actionId, String labelId, long value)
+public void recordGAEvent(String eventName, Map<String, String> params)
 ```
 
 > #### 示例
 
 ```java
 //记录事件：Google Analytics
-String categoryId = "game";
-String actionId = "level";
-String labelId = "level up";
-long value = 2;
-ngamesAnalyticsSdk.recordGAEvent(categoryId, actionId, labelId, value);
+String eventName = "level";
+Map<String, String> params = new HashMap<>();
+params.put("up", "1");
+ngamesAnalyticsSdk.recordGAEvent(eventName, params);
 ```
 
 ## 设置用户ID
@@ -282,4 +365,12 @@ ngamesAnalyticsSdk.setUserId("100");
 {% hint style="info" %}
 注意：此方法需要在登录成功的回调中，进行设置
 {% endhint %}
+
+## 记录AF卸载事件
+
+需要配置对应的（参考 本页开始的配置）：
+
+1. `AndroidManifest.xml`中`meta-data`的`com.ngames.analytics.GoogleSenderId`
+2. `AndroidManifest.xml`中`service`的 `com.appsflyer.FirebaseInstanceIdListener`
+3. `res/values` 中配置`string.xml` 的 `google_sender_id`
 
