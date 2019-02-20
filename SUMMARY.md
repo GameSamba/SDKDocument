@@ -17,6 +17,7 @@
   * [Google 支付](android-kai-fa-ji-cheng/zhi-fu.md)
   * [Facebook 功能](android-kai-fa-ji-cheng/facebook-gong-neng.md)
   * [Samsung 支付](android-kai-fa-ji-cheng/samsung-xiang-guan-gong-neng.md)
+  * [第三方 支付](android-kai-fa-ji-cheng/di-san-fang-zhi-fu.md)
 * [iOS开发集成](ios-kai-fa-ji-cheng/README.md)
   * [登录SDK集成](ios-kai-fa-ji-cheng/deng-lu-sdk-ji-cheng/README.md)
     * [SDK集成步骤](ios-kai-fa-ji-cheng/deng-lu-sdk-ji-cheng/sdk-ji-cheng-bu-zhou.md)

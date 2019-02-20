@@ -2,11 +2,12 @@
 
 ### 导入SDK的aar
 
-在SDK文件下的  `附件/libs`目录下存在3个aar文件：
+在SDK文件下的  `附件/libs`目录下存在4个aar文件：
 
-1. gamesamba-sdk-3.3.5.aar（GameSamba SDK）
-2. library-android-inapp-billing-v3.aar （谷歌支付 SDK）
-3. library-samsung-inapp-v5.aar（三星商店 SDK）
+1. gamesamba-sdk-3.3.6.aar（GameSamba SDK）
+2. gamesamba-common-sdk-3.3.6.aar（GameSamba 公共SDK）
+3. library-android-inapp-billing-v3.aar （谷歌支付 SDK）
+4. library-samsung-inapp-v5.aar（三星商店 SDK）
 
 将以上3个aar文件导入到主工程`libs` 目录下
 
@@ -20,7 +21,9 @@ dependencies {
 	
 	// 添加依赖。注意，版本号必须一致。
 	// SDK基础功能 (必需)
-	compile(name: 'gamesamba-sdk-3.3.5', ext: 'aar')
+	compile(name: 'gamesamba-sdk-3.3.6', ext: 'aar')
+	// SDK公共功能 (必需)
+	compile(name: 'gamesamba-common-sdk-3.3.6', ext: 'aar')
 	// Google支付模块 (必需)
 	compile(name: 'library-android-inapp-billing-v3', ext: 'aar')
 	// 三星商店支付模块（必需）
@@ -58,7 +61,9 @@ dependencies {
 	
 	// 添加依赖。注意，版本号必须一致。
 	// SDK基础功能 (必需)
-	implementation(name: 'gamesamba-sdk-3.3.5', ext: 'aar')
+	implementation(name: 'gamesamba-sdk-3.3.6', ext: 'aar')
+	// SDK公共功能 (必需)
+	implementation(name: 'gamesamba-common-sdk-3.3.6', ext: 'aar')
 	// Google支付模块 (必需)
 	implementation(name: 'library-android-inapp-billing-v3', ext: 'aar')
 	// 三星商店支付模块（必需）

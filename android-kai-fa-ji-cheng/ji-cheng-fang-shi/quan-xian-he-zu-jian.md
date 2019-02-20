@@ -38,6 +38,10 @@
 		<meta-data
             android:name="com.ngames.sdk.AppId"
             android:value="@string/ngames_app_id" />
+        <!--悬浮窗：Discord网站-->
+        <meta-data
+            android:name="com.ngames.sdk.Discord"
+            android:value="@string/pop_discord" />
 		<!-- Facebook的应用ID：需要配置Facebook控制台获取 -->
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
@@ -127,6 +131,8 @@
 <string name="app_id">google_game_id</string>
 <!--Google支付对应的PublicKey，请将 google_publickey 替换为自己的Google支付对应的PublicKey-->
 <string name="base64EncodedPublicKey">google_publickey</string>
+<!--悬浮框：Discord的URL-->
+<string name="pop_discord">discord_url</string>
 ```
 
 {% hint style="info" %}
@@ -146,6 +152,8 @@
 
 （1）app\_id（ Google游戏ID）
 
-4. base64EncodedPublicKey，Google支付的KEY非必须，可以通过代码设置
+4.base64EncodedPublicKey，Google支付的KEY非必须，可以通过代码设置
+
+5.pop\_discord：悬浮框中Discord的URL
 {% endhint %}
 
