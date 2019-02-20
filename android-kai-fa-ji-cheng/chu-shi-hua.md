@@ -2,7 +2,7 @@
 
 ## 初始化
 
-#### 在主Activity\#onCreate初始化 {#src-cnt-0-0}
+#### 在主Activity\#onCreate初始化 <a id="src-cnt-0-0"></a>
 
 ```java
 private NgamesSdk ngamesSdk;
@@ -47,7 +47,7 @@ SDK使用前必须初始化
 
 ### 1.onResume
 
-#### 在主Activity\#onResume中 {#src-cnt-0-0}
+#### 在主Activity\#onResume中 <a id="src-cnt-0-0"></a>
 
 ```java
 ...
@@ -63,7 +63,7 @@ protected void onResume() {
 
 ### 2.onDestroy
 
-#### 在主Activity\#onDestroy中 {#src-cnt-0-0}
+#### 在主Activity\#onDestroy中 <a id="src-cnt-0-0"></a>
 
 ```java
 ...
@@ -79,7 +79,7 @@ protected void onDestroy() {
 
 ### 3.onConfigurationChanged
 
-#### 在主Activity\#onConfigurationChanged中 {#src-cnt-0-0}
+#### 在主Activity\#onConfigurationChanged中 <a id="src-cnt-0-0"></a>
 
 ```java
 ...
@@ -95,7 +95,7 @@ public void onConfigurationChanged(Configuration newConfig) {
 
 ### 4.onActivityResult
 
-#### 在主Activity\#onActivityResult中 {#src-cnt-0-0}
+#### 在主Activity\#onActivityResult中 <a id="src-cnt-0-0"></a>
 
 ```java
 ...
@@ -125,13 +125,13 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 }
 ```
 
-## 设置调试模式 {#ji-lu-tong-ji-shi-jian}
+## 设置调试模式 <a id="ji-lu-tong-ji-shi-jian"></a>
 
-> #### API介绍 {#api-jie-shao}
+> #### API介绍 <a id="api-jie-shao"></a>
 
 设置SDK调试模式
 
-> #### API原型 {#api-yuan-xing-2}
+> #### API原型 <a id="api-yuan-xing-2"></a>
 
 ```java
 /**
@@ -141,7 +141,7 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 public void setDebug(boolean isDebug)
 ```
 
-> #### 示例 {#shi-li}
+> #### 示例 <a id="shi-li"></a>
 
 ```java
 ngamesSdk.setDebug(true);//设置Debug模式
