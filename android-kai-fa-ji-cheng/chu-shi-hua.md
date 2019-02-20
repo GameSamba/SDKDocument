@@ -2,7 +2,7 @@
 
 ## 初始化
 
-#### 在主Activity\#onCreate初始化 {#src-cnt-0-0}
+#### 在主Activity\#onCreate初始化 <a id="src-cnt-0-0"></a>
 
 ```java
 private NgamesSdk ngamesSdk;
@@ -47,7 +47,7 @@ SDK使用前必须初始化
 
 ### 1.onResume
 
-#### 在主Activity\#onResume中 {#src-cnt-0-0}
+#### 在主Activity\#onResume中 <a id="src-cnt-0-0"></a>
 
 ```java
 ...
@@ -63,7 +63,7 @@ protected void onResume() {
 
 ### 2.onDestroy
 
-#### 在主Activity\#onDestroy中 {#src-cnt-0-0}
+#### 在主Activity\#onDestroy中 <a id="src-cnt-0-0"></a>
 
 ```java
 ...
@@ -79,7 +79,7 @@ protected void onDestroy() {
 
 ### 3.onConfigurationChanged
 
-#### 在主Activity\#onConfigurationChanged中 {#src-cnt-0-0}
+#### 在主Activity\#onConfigurationChanged中 <a id="src-cnt-0-0"></a>
 
 ```java
 ...
@@ -95,7 +95,7 @@ public void onConfigurationChanged(Configuration newConfig) {
 
 ### 4.onActivityResult
 
-#### 在主Activity\#onActivityResult中 {#src-cnt-0-0}
+#### 在主Activity\#onActivityResult中 <a id="src-cnt-0-0"></a>
 
 ```java
 ...

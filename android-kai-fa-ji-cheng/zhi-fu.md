@@ -84,7 +84,7 @@ googleBillingSupport.purchase();
 
 ### 1.onResume
 
-#### 在主Activity\#onResume中 {#src-cnt-0-0}
+#### 在主Activity\#onResume中 <a id="src-cnt-0-0"></a>
 
 ```java
 ...
@@ -100,7 +100,7 @@ protected void onResume() {
 
 ### 2.onDestroy
 
-#### 在主Activity\#onDestroy中 {#src-cnt-0-0}
+#### 在主Activity\#onDestroy中 <a id="src-cnt-0-0"></a>
 
 ```java
 ...
@@ -116,7 +116,7 @@ protected void onDestroy() {
 
 ### 3.onActivityResult
 
-#### 在主Activity\#onActivityResult中 {#src-cnt-0-0}
+#### 在主Activity\#onActivityResult中 <a id="src-cnt-0-0"></a>
 
 ```java
 ...

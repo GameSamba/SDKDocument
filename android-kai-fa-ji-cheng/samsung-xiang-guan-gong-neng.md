@@ -82,9 +82,9 @@
  2. 四个activities必须为透明背景，需设置 `android:theme="@style/Theme.Empty"`. 否则会覆盖原本的应用。
 {% endhint %}
 
-## 初始化 {#chu-shi-hua}
+## 初始化 <a id="chu-shi-hua"></a>
 
-#### 在主Activity\#onCreate初始化 {#zai-zhu-activityoncreate-chu-shi-hua}
+#### 在主Activity\#onCreate初始化 <a id="zai-zhu-activityoncreate-chu-shi-hua"></a>
 
 ```java
 private SamsungBillingSupport mSamsungBillingSupport;
@@ -113,7 +113,7 @@ protected void onCreate(Bundle savedInstanceState) {
 }
 ```
 
-> #### API原型 {#api-yuan-xing-1}
+> #### API原型 <a id="api-yuan-xing-1"></a>
 
 ```java
 /**
@@ -125,18 +125,18 @@ protected void onCreate(Bundle savedInstanceState) {
 public static SamsungBillingSupport getInstance(Activity activity, BillingCallback billingCallback)
 ```
 
-> #### 参数 {#can-shu-1}
+> #### 参数 <a id="can-shu-1"></a>
 
 * Activity activity ：当前Activity
 * BillingCallback billingCallback : 购买回调
 
-## 设置调试模式 {#ji-lu-tong-ji-shi-jian}
+## 设置调试模式 <a id="ji-lu-tong-ji-shi-jian"></a>
 
-> #### API介绍 {#api-jie-shao}
+> #### API介绍 <a id="api-jie-shao"></a>
 
 设置三星商店内购调试模式
 
-> #### API原型 {#api-yuan-xing-2}
+> #### API原型 <a id="api-yuan-xing-2"></a>
 
 ```java
 /**
@@ -146,7 +146,7 @@ public static SamsungBillingSupport getInstance(Activity activity, BillingCallba
 public void setDebugMode(boolean isDebug)
 ```
 
-> #### 示例 {#shi-li}
+> #### 示例 <a id="shi-li"></a>
 
 ```java
 //设置三星商店调试模式
@@ -165,13 +165,13 @@ mSamsungBillingSupport.setDebugMode(true);
 ![](blob:https://gamesamba.gitbook.io/226c1cbe-210e-4592-9856-e5ba1c9aa02a)![](blob:https://gamesamba.gitbook.io/953fad3c-8583-45f9-bb59-9925cb7b1891)
 {% endhint %}
 
-## 购买商品 {#ji-lu-tong-ji-shi-jian}
+## 购买商品 <a id="ji-lu-tong-ji-shi-jian"></a>
 
-> #### API介绍 {#api-jie-shao}
+> #### API介绍 <a id="api-jie-shao"></a>
 
 购买三星商店内购商品
 
-> #### API原型 {#api-yuan-xing-2}
+> #### API原型 <a id="api-yuan-xing-2"></a>
 
 ```java
 /**
@@ -185,7 +185,7 @@ mSamsungBillingSupport.setDebugMode(true);
 public void purchase(String itemId, String userId, String userName, String serverId, String serverName)
 ```
 
-> #### 示例 {#shi-li}
+> #### 示例 <a id="shi-li"></a>
 
 ```java
 String itemId = "ipa.tg.na002";//商品ID
