@@ -4,12 +4,12 @@
 
 在SDK文件下的  `附件/libs`目录下存在4个aar文件：
 
-1. gamesamba-sdk-3.3.6.aar（GameSamba SDK）
-2. gamesamba-common-sdk-3.3.6.aar（GameSamba 公共SDK）
+1. gamesamba-sdk-3.3.7.aar（GameSamba SDK）
+2. gamesamba-common-sdk-3.3.7.aar（GameSamba 公共SDK）
 3. library-android-inapp-billing-v3.aar （谷歌支付 SDK）
 4. library-samsung-inapp-v5.aar（三星商店 SDK）
 
-将以上3个aar文件导入到主工程`libs` 目录下
+将以上4个aar文件导入到主工程`libs` 目录下
 
 ### 配置主工程的  build.gradle
 
@@ -21,9 +21,9 @@ dependencies {
 	
 	// 添加依赖。注意，版本号必须一致。
 	// SDK基础功能 (必需)
-	compile(name: 'gamesamba-sdk-3.3.6', ext: 'aar')
+	compile(name: 'gamesamba-sdk-3.3.7', ext: 'aar')
 	// SDK公共功能 (必需)
-	compile(name: 'gamesamba-common-sdk-3.3.6', ext: 'aar')
+	compile(name: 'gamesamba-common-sdk-3.3.7', ext: 'aar')
 	// Google支付模块 (必需)
 	compile(name: 'library-android-inapp-billing-v3', ext: 'aar')
 	// 三星商店支付模块（必需）
@@ -43,10 +43,9 @@ dependencies {
     // Facebook模块
     compile 'com.facebook.android:facebook-android-sdk:4.38.0'
     // Google模块
-    compile 'com.google.android.gms:play-services-auth:11.0.4'
-    compile 'com.google.android.gms:play-services-ads:11.0.4'
+    compile 'com.google.android.gms:play-services-auth:16.0.1'
     // Google FireBase模块
-    compile 'com.google.firebase:firebase-core:11.0.4'
+    compile 'com.google.firebase:firebase-core:16.0.4'
     // 网络请求模块
     compile 'com.squareup.okhttp3:okhttp:3.4.1'
     compile 'com.google.code.gson:gson:2.7'
@@ -61,9 +60,9 @@ dependencies {
 	
 	// 添加依赖。注意，版本号必须一致。
 	// SDK基础功能 (必需)
-	implementation(name: 'gamesamba-sdk-3.3.6', ext: 'aar')
+	implementation(name: 'gamesamba-sdk-3.3.7', ext: 'aar')
 	// SDK公共功能 (必需)
-	implementation(name: 'gamesamba-common-sdk-3.3.6', ext: 'aar')
+	implementation(name: 'gamesamba-common-sdk-3.3.7', ext: 'aar')
 	// Google支付模块 (必需)
 	implementation(name: 'library-android-inapp-billing-v3', ext: 'aar')
 	// 三星商店支付模块（必需）
@@ -83,10 +82,9 @@ dependencies {
     // Facebook模块
     implementation 'com.facebook.android:facebook-android-sdk:4.38.0'
     // Google模块
-    implementation 'com.google.android.gms:play-services-auth:11.0.4'
-    implementation 'com.google.android.gms:play-services-ads:11.0.4'
+    implementation 'com.google.android.gms:play-services-auth:16.0.1'
      // Google FireBase模块
-    implementation 'com.google.firebase:firebase-core:11.0.4'
+    implementation 'com.google.firebase:firebase-core:16.0.4'
     // 网络请求模块
     implementation 'com.squareup.okhttp3:okhttp:3.4.1'
     implementation 'com.google.code.gson:gson:2.7'
@@ -94,7 +92,7 @@ dependencies {
 
 ```
 
-在 build.gradle 文件底部添加FireBase插件：
+在 应用的build.gradle 文件底部添加FireBase插件：
 
 ```java
 dependencies {
@@ -109,4 +107,22 @@ apply plugin: 'com.google.gms.google-services'
 {% endhint %}
 
 
+
+在 项目的build.gradle 中使用：
+
+```java
+buildscript {
+    repositories {
+        google()
+        jcenter()
+        mavenCentral()
+        ...
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.0.1'
+        classpath 'com.google.gms:google-services:4.2.0'
+        ...
+    }
+}
+```
 

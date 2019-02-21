@@ -38,6 +38,10 @@
 		<meta-data
             android:name="com.ngames.sdk.AppId"
             android:value="@string/ngames_app_id" />
+        <!--Google 服务器ClientId-->
+        <meta-data
+            android:name="com.ngames.sdk.GoogleServerClientId"
+            android:value="@string/google_server_client_id" />
         <!--悬浮窗：Discord网站-->
         <meta-data
             android:name="com.ngames.sdk.Discord"
@@ -119,6 +123,8 @@
 ```markup
 <!--游戏的ID，请将 ngames_game_id 替换为自己的游戏ID-->
 <string name="ngames_app_id">ngames_game_id</string>
+<!--Google 服务器ClientId-->
+<string name="google_server_client_id">google_server_client_id</string>
 <!--Facebook的应用ID， 请将 facebook_app_id 替换为自己的 Facebook应用ID-->
 <string name="facebook_app_id">facebook_app_id</string>
 <!--Facebook的应用协议：fb{Facebook应用ID}, 请将 123456 替换为自己的 Facebook应用ID-->
@@ -138,7 +144,9 @@
 {% hint style="info" %}
 1.ngames\_app\_id：由项目经理配置
 
-2.接入Facebook SDK必须配置：
+2.google\_server\_client\_id：Google 服务器ClientId，用于谷歌登录（必须）
+
+3.接入Facebook SDK必须配置：
 
 （1）facebook\_app\_id
 
@@ -148,12 +156,16 @@
 
 （4） facebook\_provider\_authorities
 
-3.接入Google sdk必须配置：
+4.接入Google sdk必须配置：
 
 （1）app\_id（ Google游戏ID）
 
-4.base64EncodedPublicKey，Google支付的KEY非必须，可以通过代码设置
+5.base64EncodedPublicKey，Google支付的KEY非必须，可以通过代码设置
 
-5.pop\_discord：悬浮框中Discord的URL
+6.pop\_discord：悬浮框中Discord的URL
 {% endhint %}
+
+> google\_server\_client\_id
+
+这个值在Google Console 后台查看 服务器客户端ID
 
