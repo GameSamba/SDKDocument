@@ -44,10 +44,9 @@ Google Firebase的事件调用方法接口为:
 Example:
 
 ```objectivec
-[NGAAppEvents.sharedInstance recordPurchaseEventWithContentID:@"123456"
-                                                  contentType:@"category_a"
-                                                      revenue:1.99
-                                                     currency:@"USD"
-                                                     serverID:@"1001"];
+ [NGAAppEvents.sharedInstance recordPurchaseEventWithContentID:item.contentID
+                                                   contentType:@"金币" product:product
+                                                   transaction:transaction
+                                                      serverID:self.serverID];
 ```
 
