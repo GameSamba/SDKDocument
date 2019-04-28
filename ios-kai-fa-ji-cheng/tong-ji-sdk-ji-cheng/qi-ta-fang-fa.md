@@ -2,7 +2,7 @@
 
 ### 用户UserID追踪
 
-需要在用户 创建 登录 或者 切换账号后调用
+需要在用户 创建 登录 切换账号后调用
 ```objective-c
 
 [NGAAppEvents.sharedInstance refreshCustomerUser];
