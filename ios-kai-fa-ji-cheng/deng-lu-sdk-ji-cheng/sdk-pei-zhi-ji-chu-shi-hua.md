@@ -68,7 +68,7 @@
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
     //FB的OpenURL方法
     [[NGAGameLoginKit shareInstance] application:application openURL:url sourceApplication:sourceApplication annotation:annotation];
-    return handled;
+    return YES;
 }
 
 /** iOS 9 建议此新方法 */
