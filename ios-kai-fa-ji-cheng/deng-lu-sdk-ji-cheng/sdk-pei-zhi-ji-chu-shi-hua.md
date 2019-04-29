@@ -67,15 +67,15 @@
 ///iOS 9 之前使用的方法
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
     //FB的OpenURL方法
-    BOOL handled = [[NGAGameLoginKit shareInstance] application:application openURL:url sourceApplication:sourceApplication annotation:annotation];
+    [[NGAGameLoginKit shareInstance] application:application openURL:url sourceApplication:sourceApplication annotation:annotation];
     return handled;
 }
 
 /** iOS 9 建议此新方法 */
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options{
     //FB的OpenURL方法
-    BOOL handled = [[NGAGameLoginKit shareInstance] application:app openURL:url options:options];
-    return handled;
+    [[NGAGameLoginKit shareInstance] application:app openURL:url options:options];
+    return YES;
 }
 ```
 
