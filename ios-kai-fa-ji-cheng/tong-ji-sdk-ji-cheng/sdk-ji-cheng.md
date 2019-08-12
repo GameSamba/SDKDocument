@@ -30,6 +30,10 @@
 >
 > GoogleUtilities.framework
 >
+> GoogleDataTransport.framework
+>
+> GoogleDataTransportCCTSupport.framework
+>
 > GoogleAppMeasurement.framework
 >
 > MeasurementNanoPB.framework
