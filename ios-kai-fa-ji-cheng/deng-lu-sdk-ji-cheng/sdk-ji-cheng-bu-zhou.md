@@ -12,7 +12,7 @@
 
 ## 2. 在Build Phases中添加相关文件, 所需文件如下\(在Demo中获取相关文件\):
 
-> Bolts.framework
+> ~~Bolts.framework~~(Facebook V5版本已取消此文件)
 >
 > FBSDKCoreKit.framework
 >
@@ -42,5 +42,5 @@ framework添加到 `Link Binary With Libraries` 中, bundle资源文件添加到
 
 ![](../../.gitbook/assets/snipaste_2018-05-03_11-50-51.png)
 
-### 至此, 项目集成SDK完毕
+### 至此, SDK文件集成完毕
 
