@@ -12,7 +12,7 @@
 
 ## 2. 在Build Phases中添加相关文件, 所需文件如下\(在Demo中获取相关文件\):
 
-> ~~Bolts.framework~~(Facebook V5版本已取消此文件)
+> ~~Bolts.framework~~ (Facebook SDK V5 已弃用)
 >
 > FBSDKCoreKit.framework
 >
