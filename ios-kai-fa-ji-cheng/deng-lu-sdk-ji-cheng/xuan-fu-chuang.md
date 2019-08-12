@@ -1,19 +1,20 @@
 # 悬浮窗
 
 ```objectivec
-    //获取悬浮窗控件并添加到视图中
-    NGAGameDragBallView *dragballView=[[NGAGameDragBallView alloc] initWithFrame:CGRectMake(0, 250, 0, 0)];
-    [self.view addSubview:dragballView];
-
-    //通过此方法设置App的rootViewController, 便于展示UI
-    [dragballView setupShowManageAccountViewFromViewController:nil];
+    //构建悬浮窗,传递CGPointZero参数则显示在默认左下角位置, 也可以穿入其他位置参数, 但是要注意避开iPhone的刘海区域
+    NGADragBallView *drag = [NGADragBallView dragBallViewWithPosition:CGPointZero];
+    [self.view addSubview:drag];
 
     //设置悬浮窗中分享按钮的功能
-    dragballView.isOpenShare = YES;
-    [dragballView setupShareAction:@selector(share:) onTarget:self];
-
+    drag.openShare = YES;   //开启分享功能
+    [drag setupShareAction:@selector(share) onTarget:self];
+/*
+- (void)share{
+	//...
+}
+*/
     //开启客服功能并设置玩家姓名参数便于提交相关表单信息
-    dragballView.isOpenforum = YES;
-    [dragballView setupRoleNameForSupport:@"角色 名"];
+    drag.openForum = YES;   //开启Support功能
+    [drag setRoleName:@"Someone"];  //Support需传入角色名
 ```
 

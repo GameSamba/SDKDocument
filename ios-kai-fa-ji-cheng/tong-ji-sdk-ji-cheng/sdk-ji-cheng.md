@@ -16,7 +16,7 @@
 >
 > AppsFlyerLib.framework
 >
-> Bolts.framework
+> ~~Bolts.framework~~ (Facebook SDK V5 已弃用)
 >
 > FBSDKCoreKit.framework
 >

@@ -10,7 +10,7 @@
 //启动FB, 在集成登录SDK的情况下, 此行代码跳过
 //[[NGAAppEvents sharedInstance] fbApplication:application didFinishLaunchingWithOptions:launchOptions];
 
-//配置Google Firebase
+//配置Google Firebase, 需要在项目中添加GoogleService-Info.plist文件
 [[NGAAppEvents sharedInstance] gaConfigure];
 
 //配置启动配置的相关参数
@@ -60,7 +60,7 @@ config.enableAddIDFA = YES;                            //开启IDFA追踪
 
 **配置登录SDK后, 此步骤跳过**
 
-![](../../.gitbook/assets/tu-pian-1.png)SourceCode下为:
+![](../../.gitbook/assets/tu-pian-1.png)SourceCode下为: 
 
 ```markup
 <array>

@@ -13,6 +13,8 @@
 - (void)gameLoginKit:(NGAGameLoginKit *)gameLoginKit didUserChanged:(UserModel *)user{
     //TODO: 此处返回通过界面UI登陆以及切换用户后获得的user
 }
+
+//具体可查看Demo示例代码
 ```
 
 ## 2.  游客登录

@@ -13,7 +13,7 @@ Google Firebase的事件调用方法接口为:
 - (void)gaLogEventWithName:(NSString *)name parameters:(NSDictionary<NSString *, id> *)parameters;
 ```
 
-根据需求去确认是否调用Google Firebase的事件记录.
+根据需求确认是否调用Google Firebase的事件记录.
 
 ## Purchase事件单独调用
 

@@ -6,7 +6,7 @@
 
 ![](../../.gitbook/assets/snipaste_2018-05-03_12-02-03.png)
 
-源文件部分代码如下, 使用时需要配置相应的facebook appid和 NGamesAppid即可
+源文件部分代码如下, **使用时需要配置相应的facebook appid和 NGamesAppid**即可
 
 ```markup
 <key>LSApplicationQueriesSchemes</key>
@@ -33,8 +33,6 @@
 <string>NGamesDemo</string>
 <key>NGamesAppID</key>
 <string>36</string>
-<key>NGamesHide</key>
-<true/>
 ```
 
 ## 2. 在AppDelegate文件中配置初始化代码
@@ -44,7 +42,9 @@
 在`- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions` 方法中配置如下代码:
 
 ```objectivec
+//配置语言
 [NGAGameLoginKit shareInstance].languageCode = @"en";
+//配置FB和GameCenter等的初始化
 [[NGAGameLoginKit shareInstance] setupGameHandlerWithApplication:application LaunchingWithOptions:launchOptions];
 ```
 
