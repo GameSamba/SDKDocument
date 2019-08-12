@@ -2,13 +2,13 @@
 
 首先确保证书支持推送.
 
-![Xnip2019-08-12_15-17-39](/Users/n1/Code/Git/SDKDocument/.gitbook/assets/Xnip2019-08-12_15-17-39.png)
+![Xnip2019-08-12_15-17-39](../../.gitbook/assets/Xnip2019-08-12_15-17-39.png)
 
 
 
 其次, 如果是使用静默推送, 还需要在***Background Modes*** 勾选  ***Remote notifications***
 
-![Xnip2019-08-12_15-15-55](/Users/n1/Code/Git/SDKDocument/.gitbook/assets/Xnip2019-08-12_15-15-55.png)
+![Xnip2019-08-12_15-15-55](../../.gitbook/assets/Xnip2019-08-12_15-15-55.png)
 
 
 
