@@ -55,6 +55,12 @@
 
 
 
+### 悬浮窗中账号切换功能实现
+
+实现文档 [登录](deng-lu.md)中 1. 代理方法`gameLoginKit: didUserChanged:`
+
+
+
 ### 悬浮窗按钮文字的自定义更改
 
 NGALoginSDKStrings.bundle中存放着界面UI及部分提示用语的本地化.
