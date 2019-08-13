@@ -13,10 +13,9 @@
 
     /*
     - (void)share{
-      //分享代码...
+      //分享代码, 具体实现参考Demo代码并结合分享方式
     }
     */
-
 
     //开启客服功能并设置玩家姓名参数便于提交相关表单信息
     dragBallView.openForum = YES;   //开启Support功能
