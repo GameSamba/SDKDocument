@@ -72,9 +72,9 @@ NGALoginSDKStrings.bundle中存放着界面UI及部分提示用语的本地化.
 悬浮窗按钮用到的按钮本地化语言包括如下, 可以根据需要进行相应的调整
 
 ```
-"B_Bind" = "帳戶";  				//账号按钮
-"B_Discord" = "Discord";		//Discord按钮
-"B_Facebook" = "分享";			//分享按钮
-"B_Support" = "客服";				//客服支援按钮
+"B_Bind" = "帳號管理";      //账号按钮
+"B_Discord" = "Discord";  //Discord按钮
+"B_Facebook" = "分享";    //分享按钮
+"B_Support" = "客服";     //客服支援按钮
 ```
 
