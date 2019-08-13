@@ -15,9 +15,9 @@
 
 //配置启动配置的相关参数
 NGAConfig* config = NGAConfig.new;
-config.appsFlyerDevKey = @"bLmWavMFiwAyosewWnfQ8g";    //AppsFlyer的key
+config.appsFlyerDevKey = @"bLmWavMFiwAywrxcewWnfQ8g";    //AppsFlyer的key
 config.appleAppID = @"1268557479";                     //Apple的Appid
-config.appKey = @"3411251990";                         //NGamesAppid
+config.appKey = @"gs-99";                               //游戏id
 config.enableAddIDFA = YES;                            //开启IDFA追踪
 [[NGAAppEvents sharedInstance] startWithConfig:config];
 ```
