@@ -9,7 +9,7 @@
 //设置遵循NGAGameLoginKitDelegate协议并实现代理对象方法获取通过UI登陆以及用户切换返回的User, 比如GameSamba, 账号切换登录等情况
 [NGAGameLoginKit shareInstance].delegate = self;
 
-//代理方法
+//代理方法 (主要是通过悬浮窗界面进行用户切换时, 需要进行User变更后的用户处理)
 - (void)gameLoginKit:(NGAGameLoginKit *)gameLoginKit didUserChanged:(UserModel *)user{
     //TODO: 此处返回通过界面UI登陆以及切换用户后获得的user
 }

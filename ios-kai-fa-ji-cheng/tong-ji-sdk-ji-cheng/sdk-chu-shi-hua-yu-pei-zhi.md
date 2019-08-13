@@ -2,7 +2,7 @@
 
 ## 1. 在AppDelegate文件中配置初始化代码
 
-**导入头文件** `#import <NGALoginSDK/NGALoginSDK.h>`
+**导入头文件** `#import <NGALoginSDK/NGALoginSDK.h>` , **在项目中添加GoogleService-Info.plist文件**
 
 在`- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions` 方法中配置如下代码:
 
@@ -22,7 +22,7 @@ config.enableAddIDFA = YES;                            //开启IDFA追踪
 [[NGAAppEvents sharedInstance] startWithConfig:config];
 ```
 
-### 还需要配置如下代码:
+### 配置如下代码:
 
 ```objectivec
 -(void)applicationDidBecomeActive:(UIApplication *)application{
@@ -36,7 +36,7 @@ config.enableAddIDFA = YES;                            //开启IDFA追踪
 }
 ```
 
-### openURL方法
+### 实现openURL方法
 
 ```objectivec
 // Reports app open from deeplink for iOS 8 or below (DEPRECATED)
