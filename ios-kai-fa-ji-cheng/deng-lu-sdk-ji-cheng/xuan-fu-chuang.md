@@ -3,8 +3,8 @@
 ### 悬浮窗的构建
 
 ```objectivec
-		//请通过测方法完成悬浮窗的初始化    
-		//传递CGPointZero参数则显示在默认左下角位置, 也可以传入其他位置参数, 但是要注意避开iPhone的刘海区域
+	//请通过测方法完成悬浮窗的初始化    
+	//传递CGPointZero参数则显示在默认左下角位置, 也可以传入其他位置参数, 但是要注意避开iPhone的刘海区域
     NGADragBallView *dragBallView = [NGADragBallView dragBallViewWithPosition:CGPointZero];
 
     //设置悬浮窗中分享按钮的功能
@@ -27,7 +27,7 @@
 
 ### 悬浮窗的显示与关闭
 
-#### *建议在完成用户的登入后再显示悬浮窗*
+*建议在完成用户的登入后再显示悬浮窗*
 
 悬浮窗的显示与关闭可以通过基本的视图管理来完成
 例如: 
