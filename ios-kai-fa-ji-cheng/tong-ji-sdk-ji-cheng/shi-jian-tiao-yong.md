@@ -15,7 +15,7 @@ Google Firebase的事件调用方法接口为:
 
 根据需求确认是否调用Google Firebase的事件记录.
 
-## Purchase事件单独调用
+## Purchase事件单独调用 （不会传送至Firebase）
 
 ```objectivec
 /**
