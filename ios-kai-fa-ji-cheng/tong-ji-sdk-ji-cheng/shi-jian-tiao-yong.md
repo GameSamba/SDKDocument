@@ -50,10 +50,9 @@ Example:
                                                       serverID:self.serverID];
 ```
 
-
-
 ## 配置 手动记录Facebook的购买事件
 
 FBSDK会自动记录游戏的内购事件, 如需禁用并改为手动记录的话, 需要在info.plist文件中添加相关的字典项 **FacebookAutoLogAppEventsEnabled** 并设置这个Boolean值为 **NO**, 如下图所示
 
-![Xnip2019-08-12_16-08-15](../../.gitbook/assets/Xnip2019-08-12_16-08-15.png)
+![Xnip2019-08-12\_16-08-15](../../.gitbook/assets/xnip2019-08-12_16-08-15.png)
+

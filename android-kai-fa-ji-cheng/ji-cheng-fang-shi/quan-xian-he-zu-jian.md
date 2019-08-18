@@ -33,6 +33,7 @@
     <uses-permission android:name="com.android.vending.BILLING" />
 
     <application
+        android:networkSecurityConfig="@xml/network_security_config"
         ...>
         <!-- 游戏对应ID：需要配置 -->
 		<meta-data
@@ -67,26 +68,26 @@
 		<activity
             android:name="com.ngames.game321sdk.AccountManagementActivity"
             android:configChanges="fontScale|orientation|keyboardHidden|locale|navigation|screenSize|uiMode"
-            android:screenOrientation="sensorLandscape"
+            android:screenOrientation="behind"
             android:theme="@style/ToolTipTheme"/>
 
         <activity
             android:name="com.ngames.game321sdk.ReplaceAccountActivity"
             android:configChanges="fontScale|orientation|keyboardHidden|locale|navigation|screenSize|uiMode"
-            android:screenOrientation="sensorLandscape"
+            android:screenOrientation="behind"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
 
         <activity
             android:name="com.ngames.game321sdk.LoginActivity"
             android:configChanges="fontScale|orientation|keyboardHidden|locale|navigation|screenSize|uiMode"
-            android:screenOrientation="sensorLandscape"
+            android:screenOrientation="behind"
             android:theme="@style/ngames_dialog"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
 
         <activity
             android:name="com.ngames.game321sdk.SupportActivity"
             android:configChanges="fontScale|orientation|keyboardHidden|locale|navigation|screenSize|uiMode"
-            android:screenOrientation="sensorLandscape"
+            android:screenOrientation="behind"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
 			
         <!-- Facebook相关的 -->
@@ -114,9 +115,13 @@
 
 ```
 
-{% hint style="info" %}
- 请配置对应节点下面的内容
+{% hint style="danger" %}
+以上`AndroidManifest.xml` 文件中配置的 &lt;activity&gt; 节点内必须配置为android:screenOrientation="behind"
 {% endhint %}
+
+### 
+
+### 请配置对应节点下面的内容
 
 在 `res/values` 中配置`string.xml`， 配置如下 :
 
@@ -168,4 +173,24 @@
 > google\_server\_client\_id
 
 这个值在Google Console 后台查看 服务器客户端ID
+
+### 
+
+### 复制配置文件到指定目录
+
+在SDK文件下的  `附件/res/xml`目录下存在`network_security_config.xml`文件放到接入项目的`/res/xml`目录下。
+
+将以下代码加入到`AndroidManifest.xml` 的`application`节点下面：
+
+```markup
+android:networkSecurityConfig="@xml/network_security_config"
+```
+
+{% hint style="danger" %}
+以上内容务必加上。因为使用targetSdkVersion的版本为28或者以上，Android 9.0的设备添加了网络权限的配置，如果不添加这个，HTTP协议将被拒绝访问，只能访问HTTPS。 
+{% endhint %}
+
+
+
+
 

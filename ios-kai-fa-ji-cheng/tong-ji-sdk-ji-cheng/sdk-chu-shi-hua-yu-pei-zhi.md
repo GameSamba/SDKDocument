@@ -60,7 +60,7 @@ config.enableAddIDFA = YES;                            //开启IDFA追踪
 
 **配置登录SDK后, 此步骤跳过**
 
-![](../../.gitbook/assets/tu-pian-1.png)SourceCode下为: 
+![](../../.gitbook/assets/tu-pian-1.png)SourceCode下为:
 
 ```markup
 <array>
