@@ -12,7 +12,7 @@
 
 ## 2. 在Build Phases中添加相关文件, 所需文件如下\(在Demo中获取相关文件\):
 
-> ~~Bolts.framework~~ (Facebook SDK V5 已弃用)
+> ~~Bolts.framework~~ \(Facebook SDK V5 已弃用\)
 >
 > FBSDKCoreKit.framework
 >
@@ -38,7 +38,7 @@ framework添加到 `Link Binary With Libraries` 中, bundle资源文件添加到
 
 ## 3. 需要关注的Build Settings设置:
 
-注意拼写为:  **-ObjC**
+注意拼写为: **-ObjC**
 
 ![](../../.gitbook/assets/snipaste_2018-05-03_11-50-51.png)
 

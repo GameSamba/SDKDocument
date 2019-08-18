@@ -1,4 +1,4 @@
-# SDK文件集成
+# SDK集成
 
 如下图所示, 添加相应的库文件
 
@@ -8,17 +8,17 @@
 
 > NGACountSDK.framework
 >
-> AdSupport.framework (系统库)
+> AdSupport.framework \(系统库\)
 >
-> iAd.framework (系统库)
+> iAd.framework \(系统库\)
 >
-> SystemConfiguration.framework (系统库)
+> SystemConfiguration.framework \(系统库\)
 >
 > AppsFlyerLib.framework
 >
-> ~~Bolts.framework~~ (Facebook SDK V5 已弃用)
+> ~~Bolts.framework~~ \(Facebook SDK V5 已弃用\)
 >
-> FBSDKCoreKit.framework (登录SDK同样也包含)
+> FBSDKCoreKit.framework \(登录SDK同样也包含\)
 >
 > FirebaseAnalytics.framework
 >
