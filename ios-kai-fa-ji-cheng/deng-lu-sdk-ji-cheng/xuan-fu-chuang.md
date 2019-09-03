@@ -24,7 +24,6 @@ dragBallView.openDiscord = YES;
 
 //开启客服功能并设置玩家姓名参数便于提交相关表单信息
 dragBallView.openForum = YES;   //开启Support功能
-[dragBallView setRoleName:@"Someone"];  //Support需传入角色名
 ```
 
 ## 悬浮窗的显示与关闭
