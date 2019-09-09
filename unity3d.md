@@ -2,23 +2,16 @@
 
 ## 文件说明:
 
-```c#
-
 - Assets
   - Editor
-    - SDKStart.cs	//导出至Xcode工程的脚本文件, 包括对info.plist capability framework等工程文件的添加和修改
+    - SDKStart.cs        //导出至Xcode工程的脚本文件, 包括对info.plist capability framework等工程文件的添加和修改
   - Plugin
-    - NGASDK.cs  //SDK函数注册文件,封装了SDK的函数接口在内
+    - NGASDK.cs      //SDK函数注册文件,封装了SDK的函数接口在内
     - NGASDKCallbacks.cs   //回调函数文件, 包括SDK的登录分享等方法等函数回调在内, 需要进行进一步的实现处理
     - iOS
       - NGASDKAppController.mm	//导出至Xcode工程时, Unity会使用此AppController. 如果您的项目使用其他自定义的Apptroller, 请注意合并相关代码
-      - NGASDKDelegate*   //OC代码的登录和购买代理注册对象
-      - NGASDKWrapper*    //将 SDK的OC使用代码按照C语言进行编译
-
-
-```
-
-
+      - NGASDKDelegate*         //OC代码的登录和购买代理注册对象
+      - NGASDKWrapper*          //将 SDK的OC使用代码按照C语言进行编译
 
 ## SDK初始化及启动
 
@@ -41,6 +34,7 @@ SDK通过`NGASDKAppController.mm`中`- (BOOL)application:didFinishLaunchingWithO
       
       //设置悬浮窗的显示坐标.x,y均为0,则显示在默认位置. 如果设置在其他坐标, 则注意避开iPhone的刘海区域.
       //openShare  为打开悬浮窗的分享按钮, 分享等具体功能需要实现NGASDKDelegate.mm中的share方法
+      //openFeedback 为打开support支援网页
       //openDiscord 为打悬浮窗的Discord按钮, 更新Discord的URL使用NGASDK.cs中的setDiscordURL方法
         NGASDK.ngaDragViewWithPoint(0, 0, isOpenShare, isOpenFeedback, isOpenDiscord);	
 
