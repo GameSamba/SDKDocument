@@ -2,6 +2,8 @@
 
 ## 文件说明:
 
+```c#
+
 - Assets
   - Editor
     - SDKStart.cs	//导出至Xcode工程的脚本文件, 包括对info.plist capability framework等工程文件的添加和修改
@@ -12,6 +14,9 @@
       - NGASDKAppController.mm	//导出至Xcode工程时, Unity会使用此AppController. 如果您的项目使用其他自定义的Apptroller, 请注意合并相关代码
       - NGASDKDelegate*   //OC代码的登录和购买代理注册对象
       - NGASDKWrapper*    //将 SDK的OC使用代码按照C语言进行编译
+
+
+```
 
 
 
@@ -36,8 +41,8 @@ SDK通过`NGASDKAppController.mm`中`- (BOOL)application:didFinishLaunchingWithO
       
       //设置悬浮窗的显示坐标.x,y均为0,则显示在默认位置. 如果设置在其他坐标, 则注意避开iPhone的刘海区域.
       //openShare  为打开悬浮窗的分享按钮, 分享等具体功能需要实现NGASDKDelegate.mm中的share方法
-      //openDiscord 为打悬浮窗的Discord按钮, 更新Discord的URL使用NGASDK.cs的setDiscordURL方法
-        NGASDK.ngaDragViewWithPoint(0, 0, isOpenShare, isOpenDiscord);	
+      //openDiscord 为打悬浮窗的Discord按钮, 更新Discord的URL使用NGASDK.cs中的setDiscordURL方法
+        NGASDK.ngaDragViewWithPoint(0, 0, isOpenShare, isOpenFeedback, isOpenDiscord);	
 
 #elif UNITY_ANDROID
 
@@ -57,7 +62,7 @@ SDK通过`NGASDKAppController.mm`中`- (BOOL)application:didFinishLaunchingWithO
 
 其次需要注意的是游戏是否启用了通知功能.
 
-**开启通知**: 在调用`AddCapabilityEntitlements()`的方法时设置标志位位true, 同时在`NGASDKAppController.mm` 的`application: didFinishLaunchingWithOptions:`方法中
+**开启通知**: 在`SDKStart.cs`的代码中调用`AddCapabilityEntitlements()`方法时设置标志位参数为true, 同时在`NGASDKAppController.mm` 的`application: didFinishLaunchingWithOptions:`方法中
 
 `[[NGAAppEvents sharedInstance] afAddUninstallNotificationWithApplication:application withOptions:launchOptions usePushNotification:YES]` usePushNotification的标志位也设置为YES
 
@@ -105,7 +110,7 @@ SDK通过`NGASDKAppController.mm`中`- (BOOL)application:didFinishLaunchingWithO
 
 
 
-SDK完成登录后, 会回调`NGASDKCallbacks`中的`didFinishUserLogin`方法, 请进一步实现此方法. 
+SDK完成登录后, 会回调`NGASDKCallbacks`中的`didFinishUserLogin`方法, 请进一步实现此方法. 接受到的User字典信息参考`NGASDKDelegate.mm`中的`didUserChanged`回调方法
 
 SDK悬浮窗中的账户切换后也会通知到`didFinishUserLogin`中
 
@@ -149,11 +154,11 @@ SDK悬浮窗中的账户切换后也会通知到`didFinishUserLogin`中
 #endif
 ```
 
-##### 购买成功或失败(本地通知):
+##### 购买成功或失败(本地通知),
 
 iOS:
 
-会回调`NGASDKCallbacks.cs`文件中的`didFinishPurchase`和`didFinishPurchaseError`方法
+回调`NGASDKCallbacks.cs`文件中的`didFinishPurchase`和`didFinishPurchaseError`方法
 
 
 
