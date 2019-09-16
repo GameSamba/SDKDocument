@@ -1,76 +1,36 @@
 # iOS
 
-## 文件说明:
+### 部分文件说明:
 
 * Assets
-  * Editor
-    * SDKStart.cs        //导出至Xcode工程的脚本文件, 包括对info.plist capability framework等工程文件的添加和修改
-  * Plugin
-    * NGASDK.cs      //SDK函数注册文件,封装了SDK的函数接口在内
-    * NGASDKCallbacks.cs   //回调函数文件, 包括SDK的登录分享等方法等函数回调在内, 需要进行进一步的实现处理
-    * iOS
-      * NGASDKAppController.mm    //导出至Xcode工程时, Unity会使用此AppController. 如果您的项目使用其他自定义的Apptroller, 请注意合并相关代码
-      * NGASDKDelegate\*         //OC代码的登录和购买代理注册对象
-      * NGASDKWrapper\*          //将 SDK的OC使用代码按照C语言进行编译
+  * GameSambaSDK
+    * SDK
+      * Editor
+        * GameSambaiOSConfigurator.cs        //导出至Xcode工程的脚本文件, 包括对info.plist capability framework等工程文件的添加修改
+    * Plugin
+      * iOS
+        * NGASDKAppController.mm    //导出至Xcode工程时, Unity会使用此AppController. 如果您的项目使用其他自定义的Apptroller, 请注意合并相关代码
+        * NGASDKDelegate\*         //OC代码的登录和购买代理注册对象
+        * NGASDKWrapper\*          //将 SDK的OC使用代码按照C语言进行编译
 
-## SDK初始化及启动
+### SDK初始化及启动
 
-#### iOS:
+Unity相关代码不再赘述, 参考 [例子](li-zi.md)中的说明进行SDK的初始化及后续步骤.
 
-SDK通过`NGASDKAppController.mm`中`- (BOOL)application:didFinishLaunchingWithOptions:`内的方法进行SDK的初始化工作, 其中需要注意和配置的config属性包括 `appsFlyerDevKey` `appleAppID` `appKey` 分别为appsflyer的key , Apple App ID, 统计SDK的key\(统计SDK的key格式为"gamesamba-"+游戏ID\)
+##### 部分说明如下:
 
-其次是通过C\#代码完成SDK的代理对象设置及商品初始化的工作.如下:
+* Unity的Player Settings中需配置好`Bundle identifier`, `GameSambaiOSConfigurator.cs`脚本启动时会获取此项值并写入到相关的Xcode工程文件中.
+* Firebase相关:脚本会拷贝固定路径的`Assets/Plugins/iOS/GoogleService-Info.plist`至Xcode工程中, 导出时请确保此文件存在
 
-```text
-    void Start()
-    {
-#if UNITY_IOS
-        string[] array = { "shop.item.001", "shop.item.002", "shop.item.003" }; //配置商品ID列表
-        NGASDK.shopDelegate(array);          //设置商品代理对象及初始化
-        NGASDK.loginDelegate();                    //设置登录代理对象
-#elif UNITY_ANDROID
+* 悬浮窗相关的`SetPopPosition`方法也可以不调用, 默认位置是显示在左下角, 自定义位置时注意避开iPhone的刘海区域.
 
 
-#endif
-    }
 
-        //完成登录后需要配置相关参数
-    void AfterLoginMethod()
-    {
-#if UNITY_IOS
-        NGASDK.setRoleName("unknown");    //需要配置角色名
-        NGASDK.setServerID("1001");            //需要配置服务器ID
-        NGASDK.setServerName("Test");        //需要配置服务器名称
+##### 导出至iOS工程后, 启动Xcode时:
 
-      //设置悬浮窗的显示坐标.x,y均为0,则显示在默认位置. 如果设置在其他坐标, 则注意避开iPhone的刘海区域.
-      //openShare    显示悬浮窗的分享按钮, 分享等具体功能需要实现NGASDKDelegate.mm中的share方法
-      //openFeedback 显示support支援网页
-      //openDiscord  显示打悬浮窗的Discord按钮, 更新Discord的URL使用NGASDK.cs中的setDiscordURL方法
-        NGASDK.ngaDragViewWithPoint(0, 0, isOpenShare, isOpenFeedback, isOpenDiscord);    
-#elif UNITY_ANDROID
+Xcode工程通过`NGASDKAppController.mm`中`- (BOOL)application:didFinishLaunchingWithOptions:`内的方法进行初始化工作, 其他的诸如`OpenURL` `BecomeActive`等方法也包括在内此文件内.
+
+如果自定义AppViewController, 请合并相关代码, 并重新设置宏`IMPL_APP_CONTROLLER_SUBCLASS`
 
 
-#endif
-    }
-```
-
-### SDKStart.cs配置说明
-
-**iOS部分:**
-
-需要配置`ngaGameID`\(游戏ID\) ,`facebookAppid` \(Facebook提供的App ID\)
-
-以及根据是否使用通知功能设置标志位参数`userNotification`.
-
-**开启通知**: 在`SDKStart.cs`的代码中调配置`userNotification`标志位参数为true, 同时在`NGASDKAppController.mm` 的`application: didFinishLaunchingWithOptions:`方法中
-
-```text
-[[NGAAppEvents sharedInstance] afAddUninstallNotificationWithApplication:application 
-                                                             withOptions:launchOptions              
-                                                     usePushNotification:YES]
-```
-
-`usePushNotification`的标志位也设置为YES
-
-否则, 则以上参数分别设置为false和NO.
 
