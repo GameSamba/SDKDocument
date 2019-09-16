@@ -10,9 +10,9 @@
 
 ```csharp
 //登录
-GameSambaEvents.onLoginSuccessEvent += LoginSuccessEvent; //登录成功
-GameSambaEvents.onLoginFailedEvent += LoginFailedEvent; //登录失败
-GameSambaEvents.onLoginCancelEvent += LoginCancelEvent; //登录取消
+GameSambaEvents.OnLoginSuccessEvent += LoginSuccessEvent; //登录成功
+GameSambaEvents.OnLoginFailedEvent += LoginFailedEvent; //登录失败
+GameSambaEvents.OnLoginCancelEvent += LoginCancelEvent; //登录取消
 ```
 
 ### 取消监听
@@ -21,9 +21,9 @@ GameSambaEvents.onLoginCancelEvent += LoginCancelEvent; //登录取消
 
 ```csharp
 //登录
-GameSambaEvents.onLoginSuccessEvent -= LoginSuccessEvent; //登录成功
-GameSambaEvents.onLoginFailedEvent -= LoginFailedEvent; //登录失败
-GameSambaEvents.onLoginCancelEvent -= LoginCancelEvent; //登录取消
+GameSambaEvents.OnLoginSuccessEvent -= LoginSuccessEvent; //登录成功
+GameSambaEvents.OnLoginFailedEvent -= LoginFailedEvent; //登录失败
+GameSambaEvents.OnLoginCancelEvent -= LoginCancelEvent; //登录取消
 ```
 
 ### 监听方法
@@ -93,7 +93,7 @@ private void LoginCancelEvent()
 
 ```csharp
 //切换账号
-GameSambaEvents.onSwitchAccountEvent += SwitchAccountEvent; //切换账号成功
+GameSambaEvents.OnSwitchAccountEvent += SwitchAccountEvent; //切换账号成功
 ```
 
 ### 取消监听
@@ -102,7 +102,7 @@ GameSambaEvents.onSwitchAccountEvent += SwitchAccountEvent; //切换账号成功
 
 ```csharp
 //切换账号
-GameSambaEvents.onSwitchAccountEvent -= SwitchAccountEvent; //切换账号成功
+GameSambaEvents.OnSwitchAccountEvent -= SwitchAccountEvent; //切换账号成功
 ```
 
 ### 监听方法
@@ -138,9 +138,9 @@ private void SwitchAccountEvent(UserInfo userInfo)
 
 ```csharp
 //分享
-GameSambaEvents.onFacebookShareSuccessEvent += FacebookShareSuccessEvent; //分享成功
-GameSambaEvents.onFacebookShareFailedEvent += FacebookShareFailedEvent; //分享失败
-GameSambaEvents.onFacebookShareCancelEvent += FacebookShareCancelEvent; //分享取消
+GameSambaEvents.OnFacebookShareSuccessEvent += FacebookShareSuccessEvent; //分享成功
+GameSambaEvents.OnFacebookShareFailedEvent += FacebookShareFailedEvent; //分享失败
+GameSambaEvents.OnFacebookShareCancelEvent += FacebookShareCancelEvent; //分享取消
 ```
 
 ### 取消监听
@@ -149,9 +149,9 @@ GameSambaEvents.onFacebookShareCancelEvent += FacebookShareCancelEvent; //分享
 
 ```csharp
 //分享
-GameSambaEvents.onFacebookShareSuccessEvent -= FacebookShareSuccessEvent; //分享成功
-GameSambaEvents.onFacebookShareFailedEvent -= FacebookShareFailedEvent; //分享失败
-GameSambaEvents.onFacebookShareCancelEvent -= FacebookShareCancelEvent; //分享取消
+GameSambaEvents.OnFacebookShareSuccessEvent -= FacebookShareSuccessEvent; //分享成功
+GameSambaEvents.OnFacebookShareFailedEvent -= FacebookShareFailedEvent; //分享失败
+GameSambaEvents.OnFacebookShareCancelEvent -= FacebookShareCancelEvent; //分享取消
 ```
 
 ### 监听方法
@@ -201,8 +201,8 @@ private void FacebookShareCancelEvent()
 
 ```csharp
 //购买
-GameSambaEvents.onPurchaseSuccessEvent += PurchaseSuccessEvent; //购买成功
-GameSambaEvents.onPurchaseFailedEvent += PurchaseFailedEvent; //购买失败
+GameSambaEvents.OnPurchaseSuccessEvent += PurchaseSuccessEvent; //购买成功
+GameSambaEvents.OnPurchaseFailedEvent += PurchaseFailedEvent; //购买失败
 ```
 
 ### 取消监听
@@ -211,8 +211,8 @@ GameSambaEvents.onPurchaseFailedEvent += PurchaseFailedEvent; //购买失败
 
 ```csharp
 //购买
-GameSambaEvents.onPurchaseSuccessEvent -= PurchaseSuccessEvent; //购买成功
-GameSambaEvents.onPurchaseFailedEvent -= PurchaseFailedEvent; //购买失败
+GameSambaEvents.OnPurchaseSuccessEvent -= PurchaseSuccessEvent; //购买成功
+GameSambaEvents.OnPurchaseFailedEvent -= PurchaseFailedEvent; //购买失败
 ```
 
 ### 监听方法
