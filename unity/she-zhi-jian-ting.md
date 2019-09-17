@@ -57,6 +57,15 @@ private void LoginSuccessEvent(UserInfo loginUserInfo)
 
 #### 
 
+### 登陆成功后返回的用户信息字段说明
+> #### 类: UserInfo
+| 属性 | 类型 | 描述 |
+| :--- | :--- | :--- |
+| id | **string** | 服务器ID |
+| name | **string** | 服务器名称 |
+| token | **string** | 格式为`{时间戳}-{userid}-{加密串}`,example:`125145855-23-dfsa3322ee3344555321234sds`, 如需校验具体方法参考服务器文档 |
+
+
 #### 登录失败
 
 ```csharp
