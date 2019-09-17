@@ -57,8 +57,8 @@ private void LoginSuccessEvent(UserInfo loginUserInfo)
 
 #### 
 
-### 登陆成功后返回的用户信息字段说明
-> #### 类: UserInfo
+#### 登陆成功后返回的用户信息字段说明
+> ##### 类: UserInfo
 | 属性 | 类型 | 描述 |
 | :--- | :--- | :--- |
 | id | **string** | 服务器ID |
