@@ -192,6 +192,10 @@ GameSambaSDK.LoginGameCenter();
 
 ## 登录成功后设置
 
+{% hint style="info" %}
+登录帐号成功后，选择游戏服务器，选择游戏角色后，需要调用以下方法设置服务器和角色信息。
+{% endhint %}
+
 ### 设置服务器信息
 
 > #### API
@@ -243,6 +247,10 @@ GameSambaSDK.SetRoleInfo(roleName);
 
 
 ## 悬浮框
+
+{% hint style="info" %}
+登录帐号成功后，再登录游戏角色，之后再去调用显示悬浮框。
+{% endhint %}
 
 ### 显示悬浮气泡框
 
