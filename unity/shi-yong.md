@@ -226,20 +226,22 @@ GameSambaSDK.SetServerInfo(serverId, serverName);
 > #### API
 
 ```csharp
-GameSambaSDK.SetRoleInfo(string roleName);
+GameSambaSDK.SetRoleInfo(string roleId, string roleName);
 ```
 
 > #### 参数
 
 | 参数 | 类型 | 必须 | 描述 |
 | :--- | :--- | :--- | :--- |
+| roleId | **string** | 是 | 角色ID |
 | roleName | **string** | 是 | 角色名称 |
 
 > #### 例子
 
 ```csharp
+string roleId = "1"; //角色ID
 string roleName = "user"; //角色名称
-GameSambaSDK.SetRoleInfo(roleName);
+GameSambaSDK.SetRoleInfo(roleId, roleName);
 ```
 
 

@@ -96,11 +96,12 @@ private void LoginSuccessEvent(UserInfo loginUserInfo)
     }
 
     consoleInput.text = showText;
-    //登录成功后设置
+    //登录帐号和角色成功后设置
+    string roleId = "1"; //角色ID
     string roleName = "test"; //角色名称
     string serverId = "1"; //服务器ID
     string serverName = "test"; //服务器名称
-    GameSambaSDK.SetRoleInfo(roleName);
+    GameSambaSDK.SetRoleInfo(roleId, roleName);
     GameSambaSDK.SetServerInfo(serverId, serverName);
     GameSambaSDK.ShowPop();//显示悬浮框
 }
