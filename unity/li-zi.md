@@ -229,6 +229,12 @@ public void OnBtnGameCenterLogin()
 {
     GameSambaSDK.LoginGameCenter();
 }
+
+//GameCenter登录
+public void OnBtnAppleLogin()
+{
+    GameSambaSDK.LoginApple();
+}
 ```
 
 
