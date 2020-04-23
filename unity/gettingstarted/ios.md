@@ -19,6 +19,7 @@ Unity相关代码不再赘述, 参考 [例子](https://github.com/GameSamba/SDKD
 
 ### 部分说明如下:
 
+* 如果集成Apple登录, 在Unity导出Xcode工程后, 请手动在`Capability`中添加`Sign In with Apple`.
 * Unity的Player Settings中需配置好`Bundle identifier`, `GameSambaiOSConfigurator.cs`脚本启动时会获取此项值并写入到相关的Xcode工程文件中.
 * Firebase相关:脚本会拷贝固定路径的`Assets/Plugins/iOS/GoogleService-Info.plist`至Xcode工程中, 导出时请确保此文件存在
 * 悬浮窗相关的`SetPopPosition`方法也可以不调用, 默认位置是显示在左下角, 自定义位置时注意避开iPhone的刘海区域.
