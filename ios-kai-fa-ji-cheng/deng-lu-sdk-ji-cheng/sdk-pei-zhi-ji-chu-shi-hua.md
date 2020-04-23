@@ -4,33 +4,46 @@
 
 必要配置项如红框所示:
 
-![](../../.gitbook/assets/snipaste_2018-05-03_12-02-03.png)
+![](../../.gitbook/assets/ios_plist_info.png)
 
 源文件部分代码如下, **使用时需要配置相应的facebook appid和 NGamesAppid**即可
 
 ```markup
-<key>LSApplicationQueriesSchemes</key>
-<array>
-    <string>fbapi</string>
-    <string>fb-messenger-api</string>
-    <string>fbauth2</string>
-    <string>fbshareextension</string>
-</array>
 <key>CFBundleURLTypes</key>
-<array>
-    <dict>
-        <key>CFBundleURLSchemes</key>
-        <array>
-            <string>fb820076274792945</string>
-        </array>
-    </dict>
-</array>
-<key>FacebookAppID</key>
-<string>820076274792945</string>
-<key>FacebookDisplayName</key>
-<string>NGamesDemo</string>
-<key>NGamesAppID</key>
-<string>36</string>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb820076274792945</string>
+			</array>
+		</dict>
+	</array>
+	<key>FacebookAppID</key>
+	<string>820076274792945</string>
+	<key>FacebookDisplayName</key>
+	<string>NGamesDemo</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>fbapi</string>
+		<string>fbapi20130214</string>
+		<string>fbapi20130410</string>
+		<string>fbapi20130702</string>
+		<string>fbapi20131010</string>
+		<string>fbapi20131219</string>
+		<string>fbapi20140410</string>
+		<string>fbapi20140116</string>
+		<string>fbapi20150313</string>
+		<string>fbapi20150629</string>
+		<string>fbapi20160328</string>
+		<string>fbauth</string>
+		<string>fb-messenger-share-api</string>
+		<string>fbauth2</string>
+		<string>fbshareextension</string>
+	</array>
+	<key>LSRequiresIPhoneOS</key>
+	<true/>
+	<key>NGamesAppID</key>
+	<string>38</string>
 ```
 
 ## 2. 在AppDelegate文件中配置初始化代码
