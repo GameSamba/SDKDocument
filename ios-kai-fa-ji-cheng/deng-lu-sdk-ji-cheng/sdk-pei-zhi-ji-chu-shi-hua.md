@@ -9,7 +9,7 @@
 源文件部分代码如下, **使用时需要配置相应的facebook appid和 NGamesAppid**即可
 
 ```markup
-<key>CFBundleURLTypes</key>
+	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
 			<key>CFBundleURLSchemes</key>
