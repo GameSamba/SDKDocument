@@ -20,14 +20,15 @@ config.appleAppID = @"123456789";                     //Apple的Appid
 config.appKey = @"gs-99";                               //游戏id
 config.enableAddIDFA = YES;                            //开启IDFA追踪
 [[NGAAppEvents sharedInstance] startWithConfig:config];
+[[NGAAppEvents sharedInstance] registerActiveSDK];
 ```
 
 ### 配置如下代码:
 
 ```objectivec
--(void)applicationDidBecomeActive:(UIApplication *)application{
-    [[NGAAppEvents sharedInstance] afTrackAppLaunch];
-    [[NGAAppEvents sharedInstance] fbActivateApp];
+// Report Push Notification attribution data for re-engagements
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
+    [[NGAAppEvents sharedInstance] afHandlePushNotification:userInfo];
 }
 
 - (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity restorationHandler:(void (^)(NSArray *_Nullable))restorationHandler{
