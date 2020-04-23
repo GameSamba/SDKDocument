@@ -53,3 +53,13 @@
     }];
 ```
 
+## 5. Apple登录
+
+```objectivec
+    [[NGAGameLoginKit shareInstance] appleLoginSuccess:^(UserModel *user) {
+        //TODO: 此处返回绑定AppleSignIn的User
+
+    } error:^(NSError *errorinfo) {
+
+    }];
+```
