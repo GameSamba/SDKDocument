@@ -10,10 +10,12 @@
 
 ![](../../.gitbook/assets/keychain.png)
 
+开启Apple登录支持
+
+![](../../.gitbook/assets/iShot2020-04-2314.22.26.png)
+
 ## 2. 在Build Phases中添加相关文件, 所需文件如下\(在Demo中获取相关文件\):
 
-> ~~Bolts.framework~~ \(Facebook SDK V5 已弃用\)
->
 > FBSDKCoreKit.framework
 >
 > FBSDKLoginKit.framework
@@ -22,19 +24,21 @@
 >
 > NGALoginSDK.framework
 >
-> FacebookSDKStrings.bundle
->
 > NGALoginSDKResource.bundle
 >
 > NGALoginSDKStrings.bundle
 >
 > GameKit.framework \(系统库\)
+>
+>Accelerate.framework\(系统库\)
+>
+>libc++.tbd\(系统库\)
 
 然后将文件添加到`Build Phases`中如下图:
 
 framework添加到 `Link Binary With Libraries` 中, bundle资源文件添加到 `Copy Bundle Resources`中:
 
-![](../../.gitbook/assets/build.png)
+![](../../.gitbook/assets/iShot2020-04-2314.20.11.png)
 
 ## 3. 需要关注的Build Settings设置:
 
