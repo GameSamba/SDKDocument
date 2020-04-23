@@ -2,7 +2,7 @@
 
 如下图所示, 添加相应的库文件
 
-![](../../.gitbook/assets/snipaste_2018-05-03_15-45-41.png)
+![](../../.gitbook/assets/iShot2020-04-2314.30.14.png)
 
 包括
 
@@ -14,11 +14,15 @@
 >
 > SystemConfiguration.framework \(系统库\)
 >
+> Accelerate.framework \(系统库\)
+>
+> libc++.tbd \(系统库\)
+>
 > AppsFlyerLib.framework
 >
-> ~~Bolts.framework~~ \(Facebook SDK V5 已弃用\)
->
 > FBSDKCoreKit.framework \(登录SDK同样也包含\)
+>
+> FIRAnalyticsConnector.framework
 >
 > FirebaseAnalytics.framework
 >
@@ -26,17 +30,17 @@
 >
 > FirebaseCoreDiagnostics.framework
 >
-> FirebaseInstanceID.framework
+> FirebaseInstallations.framework
 >
-> GoogleUtilities.framework
+> GoogleAppMeasurement.framework
 >
 > GoogleDataTransport.framework
 >
 > GoogleDataTransportCCTSupport.framework
 >
-> GoogleAppMeasurement.framework
+> GoogleUtilities.framework
 >
-> MeasurementNanoPB.framework
+> PromisesObjC.framework
 >
 > nanopb.framework
 
