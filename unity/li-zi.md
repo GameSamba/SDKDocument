@@ -230,7 +230,7 @@ public void OnBtnGameCenterLogin()
     GameSambaSDK.LoginGameCenter();
 }
 
-//GameCenter登录
+//Apple登录
 public void OnBtnAppleLogin()
 {
     GameSambaSDK.LoginApple();
