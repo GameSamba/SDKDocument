@@ -63,6 +63,29 @@ public void setLoginSupport(boolean isSupportGoogle, boolean isSupportFacebook, 
 ngamesSdk.setLoginSupport(true,true,false);
 ```
 
+
+
+### 设置悬浮框支持的功能
+
+> API方法
+
+```java
+/**
+ * 设置悬浮框支持的功能
+ * @param isOpenShare 是否打开分享
+ * @param isOpenFeedback 是否打开客服功能
+ * @param isOpenDiscord 是否打开Discord
+ */
+public void setPopSupportFunction(boolean isOpenShare, boolean isOpenFeedback, boolean isOpenDiscord) 
+```
+
+> 例子：
+
+```java
+//只开启客服功能
+ngamesSdk.setPopSupportFunction(false, true, false);
+```
+
 ## 生命周期
 
 ### 1.onResume
